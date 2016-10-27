@@ -1,0 +1,4 @@
+# Partial OMNeT++/Tkenv config file -- see $HOME/.tkenvrc as well
+config default-configname	{Manhattan_1km_x_1km}
+config default-runnumber	{0}
+
