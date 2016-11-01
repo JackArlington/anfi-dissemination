@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for Flooding
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -I../../veins-2.2/src/base/phyLayer -I../../veins-2.2/src/modules/utility -I../../veins-2.2/src/modules/analogueModel -I../../veins-2.2/src/modules/mac/ieee80211p -I../../veins-2.2/src/base/modules -I../../veins-2.2/src/base/utils -I../../veins-2.2/src/modules/phy -I../../veins-2.2/src/base/messages -I../../veins-2.2/src/modules/obstacle -I../../veins-2.2/src/base/connectionManager -I../../veins-2.2/src/modules -I../../veins-2.2/src/modules/application/ieee80211p -I../../veins-2.2/src/modules/messages -I../../veins-2.2/src/modules/mobility/traci -L../../veins-2.2/out/$$\(CONFIGNAME\)/src/base -L../../veins-2.2/out/$$\(CONFIGNAME\)/src/modules -L../../veins-2.2/out/$$\(CONFIGNAME\)/tests/testUtils -lmiximbase -lmiximmodules -lmiximtestUtils -KVEINS_2_2_PROJ=../../veins-2.2
+#  opp_makemake -f --deep -I/home/jacky/bin/veins-veins-3.0/src/base/utils -I/home/jacky/bin/veins-veins-3.0/src/inet -I/home/jacky/bin/veins-veins-3.0/src/base/messages -I/home/jacky/bin/veins-veins-3.0/src/modules/application/ieee80211p -I/home/jacky/bin/veins-veins-3.0/src -I/home/jacky/bin/veins-veins-3.0/src/base/connectionManager -I/home/jacky/bin/veins-veins-3.0/src/modules/mac/ieee80211p -I/home/jacky/bin/veins-veins-3.0/src/base/modules -I/home/jacky/bin/veins-veins-3.0/src/modules/phy -I/home/jacky/bin/veins-veins-3.0/src/base/phyLayer -I/home/jacky/bin/veins-veins-3.0/src/modules -I/home/jacky/bin/veins-veins-3.0/src/modules/analogueModel -I/home/jacky/bin/veins-veins-3.0/src/modules/utility -I/home/jacky/bin/veins-veins-3.0/src/modules/mobility/traci -I/home/jacky/bin/veins-veins-3.0/src/modules/messages -L/home/jacky/bin/veins-veins-3.0/out/$$\(CONFIGNAME\)/src -lveins -KVEINS_PROJ=/home/jacky/bin/veins-veins-3.0
 #
 
 # Name of target to be created (-o option)
@@ -15,20 +15,21 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
 
 # C++ include paths (with -I)
 INCLUDE_PATH = \
-    -I../../veins-2.2/src/base/phyLayer \
-    -I../../veins-2.2/src/modules/utility \
-    -I../../veins-2.2/src/modules/analogueModel \
-    -I../../veins-2.2/src/modules/mac/ieee80211p \
-    -I../../veins-2.2/src/base/modules \
-    -I../../veins-2.2/src/base/utils \
-    -I../../veins-2.2/src/modules/phy \
-    -I../../veins-2.2/src/base/messages \
-    -I../../veins-2.2/src/modules/obstacle \
-    -I../../veins-2.2/src/base/connectionManager \
-    -I../../veins-2.2/src/modules \
-    -I../../veins-2.2/src/modules/application/ieee80211p \
-    -I../../veins-2.2/src/modules/messages \
-    -I../../veins-2.2/src/modules/mobility/traci \
+    -I$(VEINS_PROJ)/src/base/utils \
+    -I$(VEINS_PROJ)/src/inet \
+    -I$(VEINS_PROJ)/src/base/messages \
+    -I$(VEINS_PROJ)/src/modules/application/ieee80211p \
+    -I$(VEINS_PROJ)/src \
+    -I$(VEINS_PROJ)/src/base/connectionManager \
+    -I$(VEINS_PROJ)/src/modules/mac/ieee80211p \
+    -I$(VEINS_PROJ)/src/base/modules \
+    -I$(VEINS_PROJ)/src/modules/phy \
+    -I$(VEINS_PROJ)/src/base/phyLayer \
+    -I$(VEINS_PROJ)/src/modules \
+    -I$(VEINS_PROJ)/src/modules/analogueModel \
+    -I$(VEINS_PROJ)/src/modules/utility \
+    -I$(VEINS_PROJ)/src/modules/mobility/traci \
+    -I$(VEINS_PROJ)/src/modules/messages \
     -I. \
     -Imessages \
     -Irouting \
@@ -38,8 +39,8 @@ INCLUDE_PATH = \
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = -L../../veins-2.2/out/$(CONFIGNAME)/src/base -L../../veins-2.2/out/$(CONFIGNAME)/src/modules -L../../veins-2.2/out/$(CONFIGNAME)/tests/testUtils  -lmiximbase -lmiximmodules -lmiximtestUtils
-LIBS += -Wl,-rpath,`abspath ../../veins-2.2/out/$(CONFIGNAME)/src/base` -Wl,-rpath,`abspath ../../veins-2.2/out/$(CONFIGNAME)/src/modules` -Wl,-rpath,`abspath ../../veins-2.2/out/$(CONFIGNAME)/tests/testUtils`
+LIBS = -L$(VEINS_PROJ)/out/$(CONFIGNAME)/src  -lveins
+LIBS += -Wl,-rpath,`abspath $(VEINS_PROJ)/out/$(CONFIGNAME)/src`
 
 # Output directory
 PROJECT_OUTPUT_DIR = ../out
@@ -54,7 +55,7 @@ MSGFILES = \
     messages/DataMessage.msg
 
 # Other makefile variables (-K)
-VEINS_2_2_PROJ=../../veins-2.2
+VEINS_PROJ=/home/jacky/bin/veins-veins-3.0
 
 #------------------------------------------------------------------------------
 
@@ -142,70 +143,70 @@ depend:
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/messages/DataMessage_m.o: messages/DataMessage_m.cc \
 	messages/DataMessage_m.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/Coord.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/FWMath.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/MiXiMDefs.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/miximkerneldefs.h
+	$(VEINS_PROJ)/src/base/utils/MiXiMDefs.h \
+	$(VEINS_PROJ)/src/base/utils/miximkerneldefs.h \
+	$(VEINS_PROJ)/src/inet/Coord.h \
+	$(VEINS_PROJ)/src/inet/FWMath.h
 $O/routing/Flooding.o: routing/Flooding.cc \
 	messages/DataMessage_m.h \
 	routing/Flooding.h \
-	$(VEINS_2_2_PROJ)/src/base/connectionManager/BaseConnectionManager.h \
-	$(VEINS_2_2_PROJ)/src/base/connectionManager/ChannelAccess.h \
-	$(VEINS_2_2_PROJ)/src/base/connectionManager/NicEntry.h \
-	$(VEINS_2_2_PROJ)/src/base/messages/MacPkt_m.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseApplLayer.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseBattery.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseLayer.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseMobility.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseModule.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseWorldUtility.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BatteryAccess.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/Coord.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/FWMath.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/FindModule.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/HostState.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/MiXiMDefs.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/Move.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/NetwToMacControlInfo.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/PassedMessage.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/SimpleAddress.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/miximkerneldefs.h \
-	$(VEINS_2_2_PROJ)/src/modules/application/ieee80211p/BaseWaveApplLayer.h \
-	$(VEINS_2_2_PROJ)/src/modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
-	$(VEINS_2_2_PROJ)/src/modules/messages/Mac80211Pkt_m.h \
-	$(VEINS_2_2_PROJ)/src/modules/messages/WaveShortMessage_m.h \
-	$(VEINS_2_2_PROJ)/src/modules/mobility/traci/TraCIColor.h \
-	$(VEINS_2_2_PROJ)/src/modules/mobility/traci/TraCIMobility.h \
-	$(VEINS_2_2_PROJ)/src/modules/mobility/traci/TraCIScenarioManager.h \
-	$(VEINS_2_2_PROJ)/src/modules/obstacle/Obstacle.h \
-	$(VEINS_2_2_PROJ)/src/modules/obstacle/ObstacleControl.h \
-	$(VEINS_2_2_PROJ)/src/modules/utility/Consts80211p.h \
-	$(VEINS_2_2_PROJ)/src/modules/world/annotations/AnnotationManager.h
+	$(VEINS_PROJ)/src/base/connectionManager/BaseConnectionManager.h \
+	$(VEINS_PROJ)/src/base/connectionManager/ChannelAccess.h \
+	$(VEINS_PROJ)/src/base/connectionManager/NicEntry.h \
+	$(VEINS_PROJ)/src/base/modules/BaseApplLayer.h \
+	$(VEINS_PROJ)/src/base/modules/BaseBattery.h \
+	$(VEINS_PROJ)/src/base/modules/BaseLayer.h \
+	$(VEINS_PROJ)/src/base/modules/BaseMobility.h \
+	$(VEINS_PROJ)/src/base/modules/BaseModule.h \
+	$(VEINS_PROJ)/src/base/modules/BaseWorldUtility.h \
+	$(VEINS_PROJ)/src/base/modules/BatteryAccess.h \
+	$(VEINS_PROJ)/src/base/utils/FindModule.h \
+	$(VEINS_PROJ)/src/base/utils/HostState.h \
+	$(VEINS_PROJ)/src/base/utils/MiXiMDefs.h \
+	$(VEINS_PROJ)/src/base/utils/Move.h \
+	$(VEINS_PROJ)/src/base/utils/NetwToMacControlInfo.h \
+	$(VEINS_PROJ)/src/base/utils/PassedMessage.h \
+	$(VEINS_PROJ)/src/base/utils/SimpleAddress.h \
+	$(VEINS_PROJ)/src/base/utils/miximkerneldefs.h \
+	$(VEINS_PROJ)/src/inet/Coord.h \
+	$(VEINS_PROJ)/src/inet/FWMath.h \
+	$(VEINS_PROJ)/src/modules/application/ieee80211p/BaseWaveApplLayer.h \
+	$(VEINS_PROJ)/src/modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
+	$(VEINS_PROJ)/src/modules/messages/WaveShortMessage_m.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIBuffer.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIColor.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCICommandInterface.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIConnection.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCICoord.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIMobility.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIScenarioManager.h \
+	$(VEINS_PROJ)/src/modules/obstacle/Obstacle.h \
+	$(VEINS_PROJ)/src/modules/obstacle/ObstacleControl.h \
+	$(VEINS_PROJ)/src/modules/utility/Consts80211p.h \
+	$(VEINS_PROJ)/src/modules/world/annotations/AnnotationManager.h
 $O/rsu/RSUApplication.o: rsu/RSUApplication.cc \
 	messages/DataMessage_m.h \
 	rsu/RSUApplication.h \
-	$(VEINS_2_2_PROJ)/src/base/connectionManager/ChannelAccess.h \
-	$(VEINS_2_2_PROJ)/src/base/messages/MacPkt_m.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseApplLayer.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseBattery.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseLayer.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseMobility.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseModule.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BaseWorldUtility.h \
-	$(VEINS_2_2_PROJ)/src/base/modules/BatteryAccess.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/Coord.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/FWMath.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/FindModule.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/HostState.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/MiXiMDefs.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/Move.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/NetwToMacControlInfo.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/PassedMessage.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/SimpleAddress.h \
-	$(VEINS_2_2_PROJ)/src/base/utils/miximkerneldefs.h \
-	$(VEINS_2_2_PROJ)/src/modules/application/ieee80211p/BaseWaveApplLayer.h \
-	$(VEINS_2_2_PROJ)/src/modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
-	$(VEINS_2_2_PROJ)/src/modules/messages/Mac80211Pkt_m.h \
-	$(VEINS_2_2_PROJ)/src/modules/messages/WaveShortMessage_m.h \
-	$(VEINS_2_2_PROJ)/src/modules/utility/Consts80211p.h
+	$(VEINS_PROJ)/src/base/connectionManager/ChannelAccess.h \
+	$(VEINS_PROJ)/src/base/modules/BaseApplLayer.h \
+	$(VEINS_PROJ)/src/base/modules/BaseBattery.h \
+	$(VEINS_PROJ)/src/base/modules/BaseLayer.h \
+	$(VEINS_PROJ)/src/base/modules/BaseMobility.h \
+	$(VEINS_PROJ)/src/base/modules/BaseModule.h \
+	$(VEINS_PROJ)/src/base/modules/BaseWorldUtility.h \
+	$(VEINS_PROJ)/src/base/modules/BatteryAccess.h \
+	$(VEINS_PROJ)/src/base/utils/FindModule.h \
+	$(VEINS_PROJ)/src/base/utils/HostState.h \
+	$(VEINS_PROJ)/src/base/utils/MiXiMDefs.h \
+	$(VEINS_PROJ)/src/base/utils/Move.h \
+	$(VEINS_PROJ)/src/base/utils/NetwToMacControlInfo.h \
+	$(VEINS_PROJ)/src/base/utils/PassedMessage.h \
+	$(VEINS_PROJ)/src/base/utils/SimpleAddress.h \
+	$(VEINS_PROJ)/src/base/utils/miximkerneldefs.h \
+	$(VEINS_PROJ)/src/inet/Coord.h \
+	$(VEINS_PROJ)/src/inet/FWMath.h \
+	$(VEINS_PROJ)/src/modules/application/ieee80211p/BaseWaveApplLayer.h \
+	$(VEINS_PROJ)/src/modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
+	$(VEINS_PROJ)/src/modules/messages/WaveShortMessage_m.h \
+	$(VEINS_PROJ)/src/modules/utility/Consts80211p.h
 
