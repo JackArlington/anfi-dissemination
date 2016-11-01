@@ -1,0 +1,798 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Network <i>VANET</i></h2>
+<b>Package:</b> flooding<br/><b>File: <a href="src-VANET.ned.html">src/VANET.ned</a></b><br/>
+<p>TODO auto-generated type</p>
+<img src="flooding.VANET-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="flooding.rsu.RSU.html" title="RSU" alt="RSU" coords="701,115,813,182">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseWorldUtility.html" title="BaseWorldUtility" alt="BaseWorldUtility" coords="15,41,130,100">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html" title="ConnectionManager" alt="ConnectionManager" coords="3,111,141,172">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html" title="TraCIScenarioManagerLaunchd" alt="TraCIScenarioManagerLaunchd" coords="484,148,545,209">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.modules.obstacle.ObstacleControl.html" title="ObstacleControl" alt="ObstacleControl" coords="210,73,275,128">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.modules.world.annotations.AnnotationManager.html" title="AnnotationManager" alt="AnnotationManager" coords="220,71,304,130">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram. Click <a href="full-ned-usage-diagram.html">here</a> to see the full picture.</p>
+<img src="flooding.VANET-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="flooding.VANET.html" title="Network VANET" alt="" coords="390,5,462,31">
+<area shape="rect" id="node2" href="../../../veins/doc/neddoc/org.car2x.veins.modules.world.annotations.AnnotationManager.html" title="Simple Module AnnotationManager" alt="" coords="5,79,140,104">
+<area shape="rect" id="node3" href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseWorldUtility.html" title="Simple Module BaseWorldUtility" alt="" coords="165,79,285,104">
+<area shape="rect" id="node4" href="../../../veins/doc/neddoc/org.car2x.veins.modules.obstacle.ObstacleControl.html" title="Simple Module ObstacleControl" alt="" coords="309,79,425,104">
+<area shape="rect" id="node5" href="flooding.rsu.RSU.html" title="Compound Module RSU" alt="" coords="450,79,522,104">
+<area shape="rect" id="node6" href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html" title="Simple Module ConnectionManager" alt="" coords="546,79,685,104">
+<area shape="rect" id="node7" href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html" title="Simple Module TraCIScenarioManagerLaunchd" alt="" coords="709,79,914,104">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram. Click <a href="full-ned-inheritance-diagram.html">here</a> to see the full picture.</p>
+<img src="flooding.VANET-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="flooding.VANET.html" title="Network VANET" alt="" coords="5,5,77,31">
+</map>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>numberRSU</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>isNetwork</td>
+   <td><i></i></td>
+   <td></td>
+</tr>
+<tr>
+   <td>display</td>
+   <td><i>i=background/green</i></td>
+   <td>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters:</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.IBaseApplLayer.html">appl</a>.headerLength</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>length of the application message header (in bits)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch for core framework</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.recordStats</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>enable/disable tracking of statistics (eg. cOutvectors)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.headerLength</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>46 bit</td>
+   <td>
+<p>defines the length of the phy header (/preamble)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.usePropagationDelay</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td></td>
+   <td>
+<p>Should transmission delay be simulated?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.thermalNoise</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>the strength of the thermal noise [dBm]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.useThermalNoise</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td></td>
+   <td>
+<p>should thermal noise be considered?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.analogueModels</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td></td>
+   <td>
+<p>Specification of the analogue models to use and their parameters</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.decider</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td></td>
+   <td>
+<p>Specification of the decider to use and its parameters</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.sensitivity</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>The sensitivity of the physical layer [dBm]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.maxTXPower</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>The maximum transimission power of the physical layer [mW]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeRXToTX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeRXToSleep</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from receive to sleep state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeTXToRX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from send to receive state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeTXToSleep</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from send to sleep state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeSleepToRX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from sleep to receive state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeSleepToTX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from sleep to send state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.initialRadioState</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>State the radio is initially in (0=RX, 1=TX, 2=Sleep)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.radioMinAtt</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1.0</td>
+   <td>
+<p>radios gain factor (attenuation) while receiving</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.radioMaxAtt</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0.0</td>
+   <td>
+<p>radios gain factor (attenuation) while not receiving</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.nbRadioChannels</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>Number of available radio channels. Defaults to single channel radio.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.initialRadioChannel</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Initial radio channel.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.notAffectedByHostState</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.headerLength</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0 bit</td>
+   <td>
+<p>length of the MAC packet header (in bits)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.address</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>MAC address as hex string (12 hex digits), or
+"auto". "auto" values will be replaced by
+a generated MAC address in init stage 1.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.useServiceChannel</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>cycle between an SCH and the CCH (or stay on CCH all the time)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.serviceChannel</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>the service channel this maclayer listens on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.debug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.bitrate</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>18 Mbps</td>
+   <td>
+<p>bit rate</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.syncOffset</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0.0003s</td>
+   <td>
+<p>little asynchronization between cars</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.txPower</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>tx power [mW]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="flooding.rsu.RSU.html">rsu</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.queueSize</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseWorldUtility.html">baseWorldUtility</a>.playgroundSizeX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>x size of the area the nodes are in (in meters)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseWorldUtility.html">baseWorldUtility</a>.playgroundSizeY</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>y size of the area the nodes are in (in meters)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseWorldUtility.html">baseWorldUtility</a>.playgroundSizeZ</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>z size of the area the nodes are in (in meters)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseWorldUtility.html">baseWorldUtility</a>.useTorus</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>use the playground as torus?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseWorldUtility.html">baseWorldUtility</a>.use2D</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>use a 2-dimensional world?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html">connectionManager</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td></td>
+   <td>
+<p>debug switch for core framework</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html">connectionManager</a>.sendDirect</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td></td>
+   <td>
+<p>send directly to the node or create separate gates for every connection</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html">connectionManager</a>.pMax</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>maximum sending power used for this network [mW]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html">connectionManager</a>.sat</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>minimum signal attenuation threshold [dBm]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html">connectionManager</a>.alpha</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>minimum path loss coefficient</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html">connectionManager</a>.carrierFrequency</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>minimum carrier frequency of the channel [Hz]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.connectionManager.ConnectionManager.html">connectionManager</a>.drawMaxIntfDist</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>should the maximum interference distance be displayed for each node?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.debug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>emit debug messages?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.connectAt</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0s</td>
+   <td>
+<p>when to connect to TraCI server (must be the initial timestep of the server)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.firstStepAt</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>-1s</td>
+   <td>
+<p>when to start synchronizing with the TraCI server (-1: immediately after connecting)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.updateInterval</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1s</td>
+   <td>
+<p>time interval of hosts' position updates</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.moduleType</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"inet.nodes.wireless.WirelessHostSimplified"</td>
+   <td>
+<p>module type to be used in the simulation for each managed vehicle</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.moduleName</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"host"</td>
+   <td>
+<p>module name to be used in the simulation for each managed vehicle</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.moduleDisplayString</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"i=misc/node2;is=vs;r=0,,#707070,1"</td>
+   <td>
+<p>module displayString to be used in the simulation for each managed vehicle</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.host</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"localhost"</td>
+   <td>
+<p>sumo-launchd.py server hostname</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.port</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>9999</td>
+   <td>
+<p>sumo-launchd.py server port</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.launchConfig</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td></td>
+   <td>
+<p>launch configuration to send to sumo-launchd.py</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.seed</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>-1</td>
+   <td>
+<p>seed value to set in launch configuration, if missing (-1: current run number)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.autoShutdown</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>Shutdown module as soon as no more vehicles are in the simulation</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.margin</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>25</td>
+   <td>
+<p>margin to add to all received vehicle positions</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.roiRoads</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>which roads (e.g. "hwy1 hwy2") are considered to consitute the region of interest, if not empty</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.roiRects</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>""</td>
+   <td>
+<p>which rectangles (e.g. "0,0-10,10 20,20-30,30) are considered to consitute the region of interest, if not empty</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.penetrationRate</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>the probability of a vehicle being equipped with Car2X technology</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.numVehicles</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.useRouteDistributions</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd.html">manager</a>.vehicleRngIndex</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>index of the RNG stream to be used, all random numbers concerning the managed vehicles</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.obstacle.ObstacleControl.html">obstacles</a>.debug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>emit debug messages?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.obstacle.ObstacleControl.html">obstacles</a>.obstacles</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td>xml("<obstacles/>")</td>
+   <td>
+<p>obstacles to add at startup</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.world.annotations.AnnotationManager.html">annotations</a>.debug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>emit debug messages?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.world.annotations.AnnotationManager.html">annotations</a>.draw</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>draw annotations?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.world.annotations.AnnotationManager.html">annotations</a>.annotations</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td>xml("<annotations/>")</td>
+   <td>
+<p>annotations to add at startup</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #808080; font-style: italic; ">//
+// TODO auto-generated type
+//
+</span><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #000000; "> </span><span style="color: #000000; ">VANET</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=background/green&quot;</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #000000; "> </span><span style="color: #000000; ">numberRSU</span><span style="color: #000000; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #000000; ">(</span><span style="color: #008000; ">0</span><span style="color: #000000; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">rsu</span><span style="color: #000000; ">[</span><span style="color: #000000; ">numberRSU</span><span style="color: #000000; ">]: </span><span style="color: #000000; ">RSU</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">baseWorldUtility</span><span style="color: #000000; ">: </span><span style="color: #000000; ">BaseWorldUtility</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=70,20&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">connectionManager</span><span style="color: #000000; ">: </span><span style="color: #000000; ">ConnectionManager</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=70,91&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">manager</span><span style="color: #000000; ">: </span><span style="color: #000000; ">TraCIScenarioManagerLaunchd</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=512,128&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">obstacles</span><span style="color: #000000; ">: </span><span style="color: #000000; ">ObstacleControl</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=240,50&quot;</span><span style="color: #000000; ">);
+        }
+        </span><span style="color: #000000; ">annotations</span><span style="color: #000000; ">: </span><span style="color: #000000; ">AnnotationManager</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=260,50&quot;</span><span style="color: #000000; ">);
+        }
+
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #000000; ">:
+
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

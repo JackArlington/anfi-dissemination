@@ -1,0 +1,513 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+   </head>
+   <body onload="if (top.frames['componentsframe'] == undefined) { s = window.location.toString(); window.location = 'index.html?p=' + s.substring(s.lastIndexOf('/')+1); }">
+<h2 class="comptitle">Compound Module <i>RSU</i></h2>
+<b>Package:</b> aid.rsu<br/><b>File: <a href="src-rsu-RSU.ned.html">src/rsu/RSU.ned</a></b><br/><p>(no description)</p><img src="aid.rsu.RSU-type.png" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.IBaseApplLayer.html" title="IBaseApplLayer" alt="IBaseApplLayer" coords="42,65,146,106">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html" title="Nic80211p" alt="Nic80211p" coords="42,180,146,221">
+<area shape="rect" href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseMobility.html" title="BaseMobility" alt="BaseMobility" coords="231,192,287,253">
+</map>
+<h3 class="subtitle">Usage diagram:</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram. Click <a href="full-ned-usage-diagram.html">here</a> to see the full picture.</p>
+<img src="aid.rsu.RSU-usage.png" ismap="yes" usemap="#usage-diagram"/><map name="usage-diagram"><area shape="rect" id="node1" href="aid.rsu.RSU.html" title="Compound Module RSU" alt="" coords="215,79,287,104">
+<area shape="rect" id="node2" href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.IBaseApplLayer.html" title="Module Interface IBaseApplLayer" alt="" coords="5,152,120,177">
+<area shape="rect" id="node3" href="ned.IdealChannel.html" title="Channel IdealChannel" alt="" coords="144,152,243,177">
+<area shape="rect" id="node4" href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html" title="Compound Module Nic80211p" alt="" coords="267,152,351,177">
+<area shape="rect" id="node5" href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseMobility.html" title="Simple Module BaseMobility" alt="" coords="375,152,473,177">
+<area shape="rect" id="node6" href="aid.VANET.html" title="Network VANET" alt="" coords="215,5,287,31">
+</map>
+<h3 class="subtitle">Inheritance diagram:</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram. Click <a href="full-ned-inheritance-diagram.html">here</a> to see the full picture.</p>
+<img src="aid.rsu.RSU-inheritance.png" ismap="yes" usemap="#inheritance-diagram"/><map name="inheritance-diagram"><area shape="rect" id="node1" href="aid.rsu.RSU.html" title="Compound Module RSU" alt="" coords="5,5,77,31">
+</map>
+<h3 class="subtitle">Networks:</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>
+<a href="aid.VANET.html">VANET</a>
+   </td>
+   <td>
+<i>network</i>
+   </td>
+   <td>
+
+<p>TODO auto-generated type</p>
+
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Parameters:</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>applicationModule</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td></td>
+   <td>   </td>
+</tr>
+</table>
+<h3 class="subtitle">Properties:</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td>display</td>
+   <td><i>i=device/receiverdish_l</i></td>
+   <td></td>
+</tr>
+</table>
+<h3 class="subtitle">Gates:</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+<tr class="local">
+   <td>radioIn</xsl:if></td>
+   <td><i>input</i></td>
+   <td></td>   <td>
+<p>gate for sendDirect</p>
+</td>
+</tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters:</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.IBaseApplLayer.html">appl</a>.headerLength</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td></td>
+   <td>
+<p>length of the application message header (in bits)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch for core framework</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.recordStats</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>enable/disable tracking of statistics (eg. cOutvectors)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.headerLength</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>46 bit</td>
+   <td>
+<p>defines the length of the phy header (/preamble)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.usePropagationDelay</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td></td>
+   <td>
+<p>Should transmission delay be simulated?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.thermalNoise</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>the strength of the thermal noise [dBm]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.useThermalNoise</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td></td>
+   <td>
+<p>should thermal noise be considered?</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.analogueModels</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td></td>
+   <td>
+<p>Specification of the analogue models to use and their parameters</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.decider</td>
+   <td>
+      <i>xml</i>
+   </td>
+   <td></td>
+   <td>
+<p>Specification of the decider to use and its parameters</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.sensitivity</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>The sensitivity of the physical layer [dBm]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.maxTXPower</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>The maximum transimission power of the physical layer [mW]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeRXToTX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeRXToSleep</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from receive to sleep state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeTXToRX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from send to receive state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeTXToSleep</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from send to sleep state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeSleepToRX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from sleep to receive state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.timeSleepToTX</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Elapsed time to switch from sleep to send state</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.initialRadioState</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>State the radio is initially in (0=RX, 1=TX, 2=Sleep)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.radioMinAtt</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>1.0</td>
+   <td>
+<p>radios gain factor (attenuation) while receiving</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.radioMaxAtt</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0.0</td>
+   <td>
+<p>radios gain factor (attenuation) while not receiving</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.nbRadioChannels</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>Number of available radio channels. Defaults to single channel radio.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.phy.PhyLayer80211p.html">phy80211p</a>.initialRadioChannel</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>
+<p>Initial radio channel.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.notAffectedByHostState</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.headerLength</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0 bit</td>
+   <td>
+<p>length of the MAC packet header (in bits)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.address</td>
+   <td>
+      <i>string</i>
+   </td>
+   <td>"auto"</td>
+   <td>
+<p>MAC address as hex string (12 hex digits), or
+"auto". "auto" values will be replaced by
+a generated MAC address in init stage 1.</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.useServiceChannel</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>
+<p>cycle between an SCH and the CCH (or stay on CCH all the time)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.serviceChannel</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>1</td>
+   <td>
+<p>the service channel this maclayer listens on</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.debug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.bitrate</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>18 Mbps</td>
+   <td>
+<p>bit rate</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.syncOffset</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td>0.0003s</td>
+   <td>
+<p>little asynchronization between cars</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.txPower</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>tx power [mW]</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.modules.nic.Nic80211p.html">nic</a>.<a href="../../../veins/doc/neddoc/org.car2x.veins.modules.mac.ieee80211p.Mac1609_4.html">mac1609_4</a>.queueSize</td>
+   <td>
+      <i>int</i>
+   </td>
+   <td>0</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseMobility.html">mobility</a>.notAffectedByHostState</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>true</td>
+   <td>   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseMobility.html">mobility</a>.coreDebug</td>
+   <td>
+      <i>bool</i>
+   </td>
+   <td>false</td>
+   <td>
+<p>debug switch for the core framework</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseMobility.html">mobility</a>.x</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>x coordinate of the nodes' position (-1 = random)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseMobility.html">mobility</a>.y</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>y coordinate of the nodes' position (-1 = random)</p>
+   </td>
+</tr>
+<tr>
+   <td><a href="../../../veins/doc/neddoc/org.car2x.veins.base.modules.BaseMobility.html">mobility</a>.z</td>
+   <td>
+      <i>double</i>
+   </td>
+   <td></td>
+   <td>
+<p>z coordinate of the nodes' position (-1 = random)</p>
+   </td>
+</tr>
+</table>
+<h3 class="subtitle">Source code:</h3>
+<pre class="src"><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #000000; "> </span><span style="color: #000000; ">RSU</span><span style="color: #000000; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;i=device/receiverdish_l&quot;</span><span style="color: #000000; ">);
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #000000; "> </span><span style="color: #000000; ">applicationModule</span><span style="color: #000000; ">;
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #000000; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #000000; "> </span><span style="color: #000000; ">radioIn</span><span style="color: #000000; ">; </span><span style="color: #808080; font-style: italic; ">// gate for sendDirect
+</span><span style="color: #000000; ">
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">appl</span><span style="color: #000000; ">: &lt;</span><span style="color: #000000; ">applicationModule</span><span style="color: #000000; ">&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #000000; "> </span><span style="color: #000000; ">IBaseApplLayer</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=90,35;b=100,20,rect&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #000000; ">nic</span><span style="color: #000000; ">: </span><span style="color: #000000; ">Nic80211p</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=90,150;b=100,20,rect&quot;</span><span style="color: #000000; ">);
+        }
+
+        </span><span style="color: #000000; ">mobility</span><span style="color: #000000; ">: </span><span style="color: #000000; ">BaseMobility</span><span style="color: #000000; "> {
+            </span><span style="color: #000000; font-weight: bold; ">@display</span><span style="color: #000000; ">(</span><span style="color: #008000; ">&quot;p=257,172;i=block/cogwheel&quot;</span><span style="color: #000000; ">);
+        }
+
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #000000; ">:
+        </span><span style="color: #000000; ">nic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">upperLayerOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">appl</span><span style="color: #000000; ">.</span><span style="color: #000000; ">lowerLayerIn</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">nic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">upperLayerIn</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #000000; "> </span><span style="color: #000000; ">appl</span><span style="color: #000000; ">.</span><span style="color: #000000; ">lowerLayerOut</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">nic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">upperControlOut</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">appl</span><span style="color: #000000; ">.</span><span style="color: #000000; ">lowerControlIn</span><span style="color: #000000; ">;
+        </span><span style="color: #000000; ">nic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">upperControlIn</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #000000; "> </span><span style="color: #000000; ">appl</span><span style="color: #000000; ">.</span><span style="color: #000000; ">lowerControlOut</span><span style="color: #000000; ">;
+
+        </span><span style="color: #000000; ">radioIn</span><span style="color: #000000; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #000000; "> </span><span style="color: #000000; ">nic</span><span style="color: #000000; ">.</span><span style="color: #000000; ">radioIn</span><span style="color: #000000; ">;
+}
+</span></pre>
+   <hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.png"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+   </body>
+</html>

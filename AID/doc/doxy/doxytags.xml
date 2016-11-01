@@ -1,0 +1,736 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tagfile>
+  <compound kind="file">
+    <name>AID.cc</name>
+    <path>/home/jacky/work/anfi-dissemination/AID/src/routing/</path>
+    <filename>AID_8cc</filename>
+    <includes id="AID_8h" name="AID.h" local="yes" imported="no">AID.h</includes>
+    <member kind="function">
+      <type></type>
+      <name>Define_Module</name>
+      <anchorfile>AID_8cc.html</anchorfile>
+      <anchor>a2da4d2ee8fcad2c07c403f6c5a2d89e2</anchor>
+      <arglist>(AID)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>AID.h</name>
+    <path>/home/jacky/work/anfi-dissemination/AID/src/routing/</path>
+    <filename>AID_8h</filename>
+    <includes id="DataMessage__m_8h" name="DataMessage_m.h" local="yes" imported="no">DataMessage_m.h</includes>
+    <class kind="class">AID</class>
+    <class kind="struct">AID::MessageInfoEntry</class>
+  </compound>
+  <compound kind="file">
+    <name>DataMessage_m.h</name>
+    <path>/home/jacky/work/anfi-dissemination/AID/src/messages/</path>
+    <filename>DataMessage__m_8h</filename>
+    <class kind="class">DataMessage</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>MSGC_VERSION</name>
+      <anchorfile>DataMessage__m_8h.html</anchorfile>
+      <anchor>a77f5ea746b531cbdbc322a93741e33a6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>doPacking</name>
+      <anchorfile>DataMessage__m_8h.html</anchorfile>
+      <anchor>af731e0e6ceadf1f173bdfa8b2bb84004</anchor>
+      <arglist>(cCommBuffer *b, DataMessage &amp;obj)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>doUnpacking</name>
+      <anchorfile>DataMessage__m_8h.html</anchorfile>
+      <anchor>a35e8554238e5b7ca8b276cafb7ffe092</anchor>
+      <arglist>(cCommBuffer *b, DataMessage &amp;obj)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>RSUApplication.cc</name>
+    <path>/home/jacky/work/anfi-dissemination/AID/src/rsu/</path>
+    <filename>RSUApplication_8cc</filename>
+    <includes id="RSUApplication_8h" name="RSUApplication.h" local="yes" imported="no">RSUApplication.h</includes>
+    <member kind="function">
+      <type></type>
+      <name>Define_Module</name>
+      <anchorfile>RSUApplication_8cc.html</anchorfile>
+      <anchor>a44d081b8f78a9f00f1e20906d243c961</anchor>
+      <arglist>(RSUApplication)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>RSUApplication.h</name>
+    <path>/home/jacky/work/anfi-dissemination/AID/src/rsu/</path>
+    <filename>RSUApplication_8h</filename>
+    <includes id="DataMessage__m_8h" name="DataMessage_m.h" local="yes" imported="no">DataMessage_m.h</includes>
+    <class kind="class">RSUApplication</class>
+    <class kind="struct">RSUApplication::MessageEntryInfo</class>
+  </compound>
+  <compound kind="file">
+    <name>saida.txt</name>
+    <path>/home/jacky/work/anfi-dissemination/AID/simulations/</path>
+    <filename>saida_8txt</filename>
+    <member kind="variable">
+      <type>src AID_veins3 r c LuSTScenario u Cmdenv</type>
+      <name>n</name>
+      <anchorfile>saida_8txt.html</anchorfile>
+      <anchor>a7ba2a4c0d752564261ae05aa6e8c1b10</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>src AID_veins3 r c LuSTScenario u Cmdenv OpenSim Ltd</type>
+      <name>Version</name>
+      <anchorfile>saida_8txt.html</anchorfile>
+      <anchor>a7392360376c2b38e2597db3c4bc12506</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>src AID_veins3 r c LuSTScenario u Cmdenv OpenSim Ltd</type>
+      <name>build</name>
+      <anchorfile>saida_8txt.html</anchorfile>
+      <anchor>ad321fbf227ebf020e9bd44862eb3f77b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>src AID_veins3 r c LuSTScenario u Cmdenv OpenSim Ltd</type>
+      <name>edition</name>
+      <anchorfile>saida_8txt.html</anchorfile>
+      <anchor>a2a9962907060801820abfe30cf2f2603</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>src AID_veins3 r c LuSTScenario u Cmdenv OpenSim Ltd run</type>
+      <name>Scenario</name>
+      <anchorfile>saida_8txt.html</anchorfile>
+      <anchor>a81783f0243dab1915523038e70264826</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>src AID_veins3 r c LuSTScenario u Cmdenv OpenSim Ltd run</type>
+      <name>$repetition</name>
+      <anchorfile>saida_8txt.html</anchorfile>
+      <anchor>a15d3926816851274b0f520cd762b9d95</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>AID</name>
+    <filename>classAID.html</filename>
+    <class kind="struct">AID::MessageInfoEntry</class>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~AID</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>ab2bc1b4aada1242547d531864e9bb8ba</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>simsignal_t</type>
+      <name>duplicatedMessages</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>ae292ec2ddd2d1e62a6bc7d6a1f551fdc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>simsignal_t</type>
+      <name>messagesTransmitted</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a24c9b4692c8eefbfca72dbeffdab9d55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>simsignal_t</type>
+      <name>messagesReceived</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a2de41cc0505ab9adff3e58eeda1d9492</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>initialize</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a1f90e677847ee06b1b07534056be0a41</anchor>
+      <arglist>(int)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>finish</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>ab7792fb4a6562dabe8f9dbfb8012215a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>handleSelfMsg</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a0dffeea5676a857294d0a8eb55d88d5b</anchor>
+      <arglist>(cMessage *msg)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>onBeacon</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>aefa6619800202d841f5fad6caa0cb8e0</anchor>
+      <arglist>(WaveShortMessage *wsm)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>onData</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>ad43ad7c84862047336f5e4120cd8ccaf</anchor>
+      <arglist>(WaveShortMessage *wsm)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>addMessageToOutputQueue</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a28947d56ee6fd95af8567aa2e82c152d</anchor>
+      <arglist>(MessageInfoEntry *info)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sendData</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>afef90f7e9cc135ab64310ef0be4a0f60</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isDuplicateMsg</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a9d32b2efa698afbfd41cd2e91af02622</anchor>
+      <arglist>(int messageID)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isInsideROI</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>acc65c0b8d488d6c192996a1926effdcc</anchor>
+      <arglist>(MessageInfoEntry *info)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isMessageAlive</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>afce4b3c47fc7feeb180b0d7e68f99bba</anchor>
+      <arglist>(MessageInfoEntry *info)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual WaveShortMessage *</type>
+      <name>createDataMsg</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a3fb3366b0633adfe72c1b4e128ea3082</anchor>
+      <arglist>(MessageInfoEntry *info)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>addGPSError</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>ab07391618ee50d4702df994803e720b1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>receiveSignal</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>aeb22218ac59fb871168ac1988054c818</anchor>
+      <arglist>(cComponent *source, simsignal_t signalID, cObject *obj)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>TraCIMobility *</type>
+      <name>traci</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a4867bbdb3732d6d61dbd02add61eb104</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>cMessage *</type>
+      <name>dataRateTimer</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a685b34ed7dbf74e0959b980920e32015</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>double</type>
+      <name>datarate</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a64b0aac65f4790fc4050b7efeeb0773c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::map&lt; int, MessageInfoEntry * &gt;</type>
+      <name>messagesRcvd</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>afa93c5ded4608e7863d97a54e2e3b514</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::list&lt; int &gt;</type>
+      <name>outputQueue</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a894dedbd6150703f0058fe0889c88fa1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static const simsignalwrap_t</type>
+      <name>mobilityStateChangedSignal</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>aa578762bc6fa1c9ec11002ce3e211e7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration" protection="private">
+      <type></type>
+      <name>AIDMessageKinds</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a7073f21c1ae44a3cdf19caf72bcb0a2f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>BROADCAST_TIMEOUT</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a7073f21c1ae44a3cdf19caf72bcb0a2fa9e2621c79159f1b224dcca87c992713e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>SEND_DATA</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a7073f21c1ae44a3cdf19caf72bcb0a2fa23ec595ed81779e831dd3af7ba5028e4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>BROADCAST_TIMEOUT</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a7073f21c1ae44a3cdf19caf72bcb0a2fa9e2621c79159f1b224dcca87c992713e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>SEND_DATA</name>
+      <anchorfile>classAID.html</anchorfile>
+      <anchor>a7073f21c1ae44a3cdf19caf72bcb0a2fa23ec595ed81779e831dd3af7ba5028e4</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>DataMessage</name>
+    <filename>classDataMessage.html</filename>
+    <base>cPacket</base>
+    <member kind="function">
+      <type></type>
+      <name>DataMessage</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a98fbdfe023ee2d16983846e8ed36f745</anchor>
+      <arglist>(const char *name=NULL, int kind=0)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DataMessage</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a40fee088365e0d39edda8faa7ea3d44d</anchor>
+      <arglist>(const DataMessage &amp;other)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~DataMessage</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a1115b969e37d2655717d3030fc8ad072</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>DataMessage &amp;</type>
+      <name>operator=</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>af0a32ca1701f2e9ea6a4717850a592c1</anchor>
+      <arglist>(const DataMessage &amp;other)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual DataMessage *</type>
+      <name>dup</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>aa35932a3276f9a0d4b8e18e5f30756d6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>parsimPack</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a0940e4f25ab2635c0ea796f01420b849</anchor>
+      <arglist>(cCommBuffer *b)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>parsimUnpack</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>aab95c549df386c90319af36436e3291f</anchor>
+      <arglist>(cCommBuffer *b)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual Coord &amp;</type>
+      <name>getMessageOriginPosition</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>aadca2a00c01dc0532ccb10ed98138177</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual const Coord &amp;</type>
+      <name>getMessageOriginPosition</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>acb9d5f92655e086eba51996b58d7ebbd</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setMessageOriginPosition</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>af4b74b16d604d171e7e25e7b09bde625</anchor>
+      <arglist>(const Coord &amp;messageOriginPosition)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual double</type>
+      <name>getMessageROI</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>aef949d92567bfbf0296c37d8caf328b5</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setMessageROI</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>ad3a1dc2ab9ab8ee120a6aee68732c943</anchor>
+      <arglist>(double messageROI)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual simtime_t</type>
+      <name>getMessageOriginTime</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a0f62f462a2a3956c862fe994979e622a</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setMessageOriginTime</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>ad6a842bdf75fe6dc45f70fec691dec58</anchor>
+      <arglist>(simtime_t messageOriginTime)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual simtime_t</type>
+      <name>getMessageTTL</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a104851102bcbddae8ade4d64c54528d6</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setMessageTTL</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a389622cbe1d0a280c63e61bbcf115c1c</anchor>
+      <arglist>(simtime_t messageTTL)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>getHops</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a8a96955fbaece2a9ad38fbcdbe323760</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setHops</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a000d383960d59f404657c75e56382705</anchor>
+      <arglist>(int hops)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a8067ccaa0621e183716d48623f9e2224</anchor>
+      <arglist>(const DataMessage &amp;)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Coord</type>
+      <name>messageOriginPosition_var</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a26e475335ac3997b587b5f19f57dfb61</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>double</type>
+      <name>messageROI_var</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a9d87ee46d847151ff964918c459907a0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>simtime_t</type>
+      <name>messageOriginTime_var</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>a43ef370c66c74b7bc5f725c500807e33</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>simtime_t</type>
+      <name>messageTTL_var</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>af5ebb82da0c62ed7d449c2e53af94133</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>hops_var</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>ad35108c95609bccbe8026d27cf579ee7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>copy</name>
+      <anchorfile>classDataMessage.html</anchorfile>
+      <anchor>ad39bb7ac36c8858f7691d2579f2b3d50</anchor>
+      <arglist>(const DataMessage &amp;other)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>RSUApplication::MessageEntryInfo</name>
+    <filename>structRSUApplication_1_1MessageEntryInfo.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>ID</name>
+      <anchorfile>structRSUApplication_1_1MessageEntryInfo.html</anchorfile>
+      <anchor>a59628239831c5064e9c5db432d5da22d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>length</name>
+      <anchorfile>structRSUApplication_1_1MessageEntryInfo.html</anchorfile>
+      <anchor>ace993cd0b780f253bcaf52f8be1aa086</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>AID::MessageInfoEntry</name>
+    <filename>structAID_1_1MessageInfoEntry.html</filename>
+    <member kind="variable">
+      <type>int</type>
+      <name>messageID</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>ab60aadf839d7fd10c71eb1812fc8f146</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Coord</type>
+      <name>messageOriginPosition</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>ac469d0b4d630f663f090d228d7fe4255</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>messageROI</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a00dead4583f1269497992e401835268f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>simtime_t</type>
+      <name>messageOriginTime</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a021e169eaf9456a5e5f6fdac0305343f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>simtime_t</type>
+      <name>messageTTL</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a1fa267700f07ea4c6e03dd74acf9090a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>hops</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a9bb04b9c5feadb82558024f4660c9ac9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>simtime_t</type>
+      <name>receptionTime</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a92f991744d0adc9ba2225681f9914b5e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>messageLength</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a3eb4fd0e8b4a9f311ed8fbcc2df93c1f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>c</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a39e840267099c27d6778a5d91b23526c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>simtime_t</type>
+      <name>lastReceptionTime</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>a767185a39fd61ea21f0b5b2c078e8747</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::vector&lt; simtime_t &gt;</type>
+      <name>deltaTimes</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>ac9a46d8da5cfde5877b212c360ad8d1d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>cMessage *</type>
+      <name>broadcastTimer</name>
+      <anchorfile>structAID_1_1MessageInfoEntry.html</anchorfile>
+      <anchor>ad2359e9c9e1ff82042cf5a6e2739f5bc</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>RSUApplication</name>
+    <filename>classRSUApplication.html</filename>
+    <class kind="struct">RSUApplication::MessageEntryInfo</class>
+    <member kind="function">
+      <type></type>
+      <name>~RSUApplication</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a5378463bcf105592e3b4ea5b9800f06f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>initialize</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a6ce012177bfe418e5fedb6b537fe4c6c</anchor>
+      <arglist>(int stage)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>finish</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a6180d7268b727eba60671f707303a6cb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>handleSelfMsg</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>af8684870d9f0e02f746d66933bbdf5eb</anchor>
+      <arglist>(cMessage *msg)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>onBeacon</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a84df274c9146ed042e6cfb658989420c</anchor>
+      <arglist>(WaveShortMessage *wsm)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>onData</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a2afb4a1a6b70fc9fad6fee099e391823</anchor>
+      <arglist>(WaveShortMessage *wsm)</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>sendData</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a105a0722b8f945de36c9fcfe9f0ec88c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>readDataFromFile</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a651417efad18e7cf2998a14e2a562ba7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" virtualness="virtual">
+      <type>virtual void</type>
+      <name>receiveSignal</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a797085d5122bc4091c8ed008fa2ec419</anchor>
+      <arglist>(cComponent *source, simsignal_t signalID, cObject *obj)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>cMessage *</type>
+      <name>startDissemination</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a44a4778b7fe807417e730bb08c0c7357</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>cMessage *</type>
+      <name>sendDataTimer</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>ad9e761aa24182582ec7729a0e8b8c8ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>double</type>
+      <name>datarate</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a76b5c98317f2146a8869652d82e46588</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::map&lt; simtime_t, MessageEntryInfo * &gt;</type>
+      <name>loggingInfo</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>acf18bd4fb88871a493e1c6525b95dc22</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::list&lt; MessageEntryInfo * &gt;</type>
+      <name>outputQueue</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>afeaa66f05ae42ff87a4e9d0ca3801d2e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static const simsignalwrap_t</type>
+      <name>mobilityStateChangedSignal</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a79831b5be0ece5b8e7b59bd5ddc85a54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>SEND_DATA</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a5a4019d42d6a17c43affc84cf2fb0c5fa20ad7136b10ae03b7b4ae977cc101845</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>START_DISSEMINATION</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a5a4019d42d6a17c43affc84cf2fb0c5fa2a7aff703a2b1f6318f54e8dc3816818</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>SEND_DATA</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a5a4019d42d6a17c43affc84cf2fb0c5fa20ad7136b10ae03b7b4ae977cc101845</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue" protection="private">
+      <name>START_DISSEMINATION</name>
+      <anchorfile>classRSUApplication.html</anchorfile>
+      <anchor>a5a4019d42d6a17c43affc84cf2fb0c5fa2a7aff703a2b1f6318f54e8dc3816818</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+</tagfile>

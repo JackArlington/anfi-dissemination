@@ -1,0 +1,11 @@
+<area shape="rect" id="node1" href="flooding.Car.html" title="Compound Module Car" alt="" coords="5,5,77,31">
+<area shape="rect" id="node2" href="ned.DatarateChannel.html" title="Channel DatarateChannel" alt="" coords="101,5,221,31">
+<area shape="rect" id="node3" href="ned.DelayChannel.html" title="Channel DelayChannel" alt="" coords="245,5,349,31">
+<area shape="rect" id="node4" href="flooding.routing.Flooding.html" title="Simple Module Flooding" alt="" coords="351,79,423,104">
+<area shape="rect" id="node5" href="../../../veins/doc/neddoc/org.car2x.veins.modules.application.ieee80211p.BaseWaveApplLayer.html" title="Simple Module BaseWaveApplLayer" alt="" coords="373,5,517,31">
+<area shape="rect" id="node10" href="flooding.rsu.RSUApplication.html" title="Simple Module RSUApplication" alt="" coords="447,79,561,104">
+<area shape="rect" id="node6" href="ned.IBidirectionalChannel.html" title="Module Interface IBidirectionalChannel" alt="" coords="542,5,687,31">
+<area shape="rect" id="node7" href="ned.IdealChannel.html" title="Channel IdealChannel" alt="" coords="712,5,811,31">
+<area shape="rect" id="node8" href="ned.IUnidirectionalChannel.html" title="Module Interface IUnidirectionalChannel" alt="" coords="835,5,989,31">
+<area shape="rect" id="node9" href="flooding.rsu.RSU.html" title="Compound Module RSU" alt="" coords="1013,5,1085,31">
+<area shape="rect" id="node11" href="flooding.VANET.html" title="Network VANET" alt="" coords="1109,5,1181,31">
