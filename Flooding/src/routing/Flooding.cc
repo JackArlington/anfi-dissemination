@@ -15,6 +15,8 @@
 
 #include "Flooding.h"
 
+using namespace Veins;
+
 Define_Module(Flooding);
 
 const simsignalwrap_t Flooding::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);

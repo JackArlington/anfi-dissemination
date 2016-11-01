@@ -22,6 +22,9 @@
 #include "TraCIMobility.h"
 #include <algorithm>
 
+using Veins::TraCIMobility;
+
+
 class Flooding : public BaseWaveApplLayer
 {
 protected:
