@@ -1,0 +1,3 @@
+package anfidissemination;
+
+@license(LGPL);
