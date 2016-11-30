@@ -33,7 +33,13 @@ network Scenario
         double playgroundSizeY @unit(m); // y size of the area the nodes are in (in meters)
         double playgroundSizeZ @unit(m); // z size of the area the nodes are in (in meters)
         @display("bgb=$playgroundSizeX,$playgroundSizeY");
+        
+        int numberRSU = default(0); 
+
     submodules:
+ 
+        rsu[numberRSU]: RSU;
+        
         obstacles: ObstacleControl {
             @display("p=240,50");
         }

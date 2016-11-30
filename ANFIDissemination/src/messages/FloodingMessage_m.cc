@@ -61,6 +61,7 @@ FloodingMessage::FloodingMessage(const char *name, int kind) : ::WaveShortMessag
     this->destAddr_var = 0;
     this->msgId_var = 0;
     this->ttl_var = 0;
+    this->sent_var = 0;
 }
 
 FloodingMessage::FloodingMessage(const FloodingMessage& other) : ::WaveShortMessage(other)
@@ -86,6 +87,7 @@ void FloodingMessage::copy(const FloodingMessage& other)
     this->destAddr_var = other.destAddr_var;
     this->msgId_var = other.msgId_var;
     this->ttl_var = other.ttl_var;
+    this->sent_var = other.sent_var;
 }
 
 void FloodingMessage::parsimPack(cCommBuffer *b)
@@ -95,6 +97,7 @@ void FloodingMessage::parsimPack(cCommBuffer *b)
     doPacking(b,this->destAddr_var);
     doPacking(b,this->msgId_var);
     doPacking(b,this->ttl_var);
+    doPacking(b,this->sent_var);
 }
 
 void FloodingMessage::parsimUnpack(cCommBuffer *b)
@@ -104,6 +107,7 @@ void FloodingMessage::parsimUnpack(cCommBuffer *b)
     doUnpacking(b,this->destAddr_var);
     doUnpacking(b,this->msgId_var);
     doUnpacking(b,this->ttl_var);
+    doUnpacking(b,this->sent_var);
 }
 
 unsigned int FloodingMessage::getSrcAddr() const
@@ -136,14 +140,24 @@ void FloodingMessage::setMsgId(unsigned int msgId)
     this->msgId_var = msgId;
 }
 
-unsigned int FloodingMessage::getTtl() const
+int FloodingMessage::getTtl() const
 {
     return ttl_var;
 }
 
-void FloodingMessage::setTtl(unsigned int ttl)
+void FloodingMessage::setTtl(int ttl)
 {
     this->ttl_var = ttl;
+}
+
+simtime_t FloodingMessage::getSent() const
+{
+    return sent_var;
+}
+
+void FloodingMessage::setSent(simtime_t sent)
+{
+    this->sent_var = sent;
 }
 
 class FloodingMessageDescriptor : public cClassDescriptor
@@ -193,7 +207,7 @@ const char *FloodingMessageDescriptor::getProperty(const char *propertyname) con
 int FloodingMessageDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 4+basedesc->getFieldCount(object) : 4;
+    return basedesc ? 5+basedesc->getFieldCount(object) : 5;
 }
 
 unsigned int FloodingMessageDescriptor::getFieldTypeFlags(void *object, int field) const
@@ -209,8 +223,9 @@ unsigned int FloodingMessageDescriptor::getFieldTypeFlags(void *object, int fiel
         FD_ISEDITABLE,
         FD_ISEDITABLE,
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<4) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<5) ? fieldTypeFlags[field] : 0;
 }
 
 const char *FloodingMessageDescriptor::getFieldName(void *object, int field) const
@@ -226,8 +241,9 @@ const char *FloodingMessageDescriptor::getFieldName(void *object, int field) con
         "destAddr",
         "msgId",
         "ttl",
+        "sent",
     };
-    return (field>=0 && field<4) ? fieldNames[field] : NULL;
+    return (field>=0 && field<5) ? fieldNames[field] : NULL;
 }
 
 int FloodingMessageDescriptor::findField(void *object, const char *fieldName) const
@@ -238,6 +254,7 @@ int FloodingMessageDescriptor::findField(void *object, const char *fieldName) co
     if (fieldName[0]=='d' && strcmp(fieldName, "destAddr")==0) return base+1;
     if (fieldName[0]=='m' && strcmp(fieldName, "msgId")==0) return base+2;
     if (fieldName[0]=='t' && strcmp(fieldName, "ttl")==0) return base+3;
+    if (fieldName[0]=='s' && strcmp(fieldName, "sent")==0) return base+4;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
@@ -253,9 +270,10 @@ const char *FloodingMessageDescriptor::getFieldTypeString(void *object, int fiel
         "unsigned int",
         "unsigned int",
         "unsigned int",
-        "unsigned int",
+        "int",
+        "simtime_t",
     };
-    return (field>=0 && field<4) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<5) ? fieldTypeStrings[field] : NULL;
 }
 
 const char *FloodingMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
@@ -298,7 +316,8 @@ std::string FloodingMessageDescriptor::getFieldAsString(void *object, int field,
         case 0: return ulong2string(pp->getSrcAddr());
         case 1: return ulong2string(pp->getDestAddr());
         case 2: return ulong2string(pp->getMsgId());
-        case 3: return ulong2string(pp->getTtl());
+        case 3: return long2string(pp->getTtl());
+        case 4: return double2string(pp->getSent());
         default: return "";
     }
 }
@@ -316,7 +335,8 @@ bool FloodingMessageDescriptor::setFieldAsString(void *object, int field, int i,
         case 0: pp->setSrcAddr(string2ulong(value)); return true;
         case 1: pp->setDestAddr(string2ulong(value)); return true;
         case 2: pp->setMsgId(string2ulong(value)); return true;
-        case 3: pp->setTtl(string2ulong(value)); return true;
+        case 3: pp->setTtl(string2long(value)); return true;
+        case 4: pp->setSent(string2double(value)); return true;
         default: return false;
     }
 }

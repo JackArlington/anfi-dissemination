@@ -28,7 +28,8 @@
  *     unsigned int srcAddr;
  *     unsigned int destAddr;
  *     unsigned int msgId;
- *     unsigned int ttl = 0;
+ *     int ttl;
+ *     simtime_t sent;
  * }
  * </pre>
  */
@@ -38,7 +39,8 @@ class FloodingMessage : public ::WaveShortMessage
     unsigned int srcAddr_var;
     unsigned int destAddr_var;
     unsigned int msgId_var;
-    unsigned int ttl_var;
+    int ttl_var;
+    simtime_t sent_var;
 
   private:
     void copy(const FloodingMessage& other);
@@ -63,8 +65,10 @@ class FloodingMessage : public ::WaveShortMessage
     virtual void setDestAddr(unsigned int destAddr);
     virtual unsigned int getMsgId() const;
     virtual void setMsgId(unsigned int msgId);
-    virtual unsigned int getTtl() const;
-    virtual void setTtl(unsigned int ttl);
+    virtual int getTtl() const;
+    virtual void setTtl(int ttl);
+    virtual simtime_t getSent() const;
+    virtual void setSent(simtime_t sent);
 };
 
 inline void doPacking(cCommBuffer *b, FloodingMessage& obj) {obj.parsimPack(b);}

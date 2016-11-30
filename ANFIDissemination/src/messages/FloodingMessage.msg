@@ -11,5 +11,6 @@ message FloodingMessage extends WaveShortMessage
     unsigned int srcAddr;
     unsigned int destAddr;
     unsigned int msgId;
-    unsigned int ttl=0;
+    int ttl;
+    simtime_t sent;
 }
