@@ -12,17 +12,24 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
-
 cplusplus {{
-#include <Coord.h>
+    #include <list>
+	#include "WaveShortMessage_m.h"
 }}
 
-class noncobject Coord;
+class WaveShortMessage;
+struct Coord;
 
-packet DataMessage {
-    Coord messageOriginPosition;
+message FloodingMessage extends WaveShortMessage
+{
+    unsigned int srcAddr;
+    unsigned int destAddr;
+    unsigned int msgId;
+    int ttl;
     double messageROI;
-    simtime_t messageOriginTime;
-    simtime_t messageTTL;
-    int hops;           
+    simtime_t messageOriginTime; 
+    simtime_t messageTTL;  
+    int hops;  
+    simtime_t sent;
 }
+
