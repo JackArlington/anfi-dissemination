@@ -29,6 +29,7 @@
  *     unsigned int destAddr;
  *     unsigned int msgId;
  *     int ttl;
+ *     int hopCount = 0;
  *     simtime_t sent;
  * }
  * </pre>
@@ -40,6 +41,7 @@ class FloodingMessage : public ::WaveShortMessage
     unsigned int destAddr_var;
     unsigned int msgId_var;
     int ttl_var;
+    int hopCount_var;
     simtime_t sent_var;
 
   private:
@@ -67,6 +69,8 @@ class FloodingMessage : public ::WaveShortMessage
     virtual void setMsgId(unsigned int msgId);
     virtual int getTtl() const;
     virtual void setTtl(int ttl);
+    virtual int getHopCount() const;
+    virtual void setHopCount(int hopCount);
     virtual simtime_t getSent() const;
     virtual void setSent(simtime_t sent);
 };

@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by nedtool 4.6 from messages/FloodingMessage.msg.
+// Generated file, do not edit! Created by nedtool 4.6 from messages/AIDMessage.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:
@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <sstream>
-#include "FloodingMessage_m.h"
+#include "AIDMessage_m.h"
 
 USING_NAMESPACE
 
@@ -53,28 +53,31 @@ inline std::ostream& operator<<(std::ostream& out, const std::vector<T,A>& vec)
 template<typename T>
 inline std::ostream& operator<<(std::ostream& out,const T&) {return out;}
 
-Register_Class(FloodingMessage);
+Register_Class(AIDMessage);
 
-FloodingMessage::FloodingMessage(const char *name, int kind) : ::WaveShortMessage(name,kind)
+AIDMessage::AIDMessage(const char *name, int kind) : ::WaveShortMessage(name,kind)
 {
     this->srcAddr_var = 0;
     this->destAddr_var = 0;
     this->msgId_var = 0;
     this->ttl_var = 0;
-    this->hopCount_var = 0;
+    this->messageROI_var = 0;
+    this->messageOriginTime_var = 0;
+    this->messageTTL_var = 0;
+    this->hops_var = 0;
     this->sent_var = 0;
 }
 
-FloodingMessage::FloodingMessage(const FloodingMessage& other) : ::WaveShortMessage(other)
+AIDMessage::AIDMessage(const AIDMessage& other) : ::WaveShortMessage(other)
 {
     copy(other);
 }
 
-FloodingMessage::~FloodingMessage()
+AIDMessage::~AIDMessage()
 {
 }
 
-FloodingMessage& FloodingMessage::operator=(const FloodingMessage& other)
+AIDMessage& AIDMessage::operator=(const AIDMessage& other)
 {
     if (this==&other) return *this;
     ::WaveShortMessage::operator=(other);
@@ -82,103 +85,142 @@ FloodingMessage& FloodingMessage::operator=(const FloodingMessage& other)
     return *this;
 }
 
-void FloodingMessage::copy(const FloodingMessage& other)
+void AIDMessage::copy(const AIDMessage& other)
 {
     this->srcAddr_var = other.srcAddr_var;
     this->destAddr_var = other.destAddr_var;
     this->msgId_var = other.msgId_var;
     this->ttl_var = other.ttl_var;
-    this->hopCount_var = other.hopCount_var;
+    this->messageROI_var = other.messageROI_var;
+    this->messageOriginTime_var = other.messageOriginTime_var;
+    this->messageTTL_var = other.messageTTL_var;
+    this->hops_var = other.hops_var;
     this->sent_var = other.sent_var;
 }
 
-void FloodingMessage::parsimPack(cCommBuffer *b)
+void AIDMessage::parsimPack(cCommBuffer *b)
 {
     ::WaveShortMessage::parsimPack(b);
     doPacking(b,this->srcAddr_var);
     doPacking(b,this->destAddr_var);
     doPacking(b,this->msgId_var);
     doPacking(b,this->ttl_var);
-    doPacking(b,this->hopCount_var);
+    doPacking(b,this->messageROI_var);
+    doPacking(b,this->messageOriginTime_var);
+    doPacking(b,this->messageTTL_var);
+    doPacking(b,this->hops_var);
     doPacking(b,this->sent_var);
 }
 
-void FloodingMessage::parsimUnpack(cCommBuffer *b)
+void AIDMessage::parsimUnpack(cCommBuffer *b)
 {
     ::WaveShortMessage::parsimUnpack(b);
     doUnpacking(b,this->srcAddr_var);
     doUnpacking(b,this->destAddr_var);
     doUnpacking(b,this->msgId_var);
     doUnpacking(b,this->ttl_var);
-    doUnpacking(b,this->hopCount_var);
+    doUnpacking(b,this->messageROI_var);
+    doUnpacking(b,this->messageOriginTime_var);
+    doUnpacking(b,this->messageTTL_var);
+    doUnpacking(b,this->hops_var);
     doUnpacking(b,this->sent_var);
 }
 
-unsigned int FloodingMessage::getSrcAddr() const
+unsigned int AIDMessage::getSrcAddr() const
 {
     return srcAddr_var;
 }
 
-void FloodingMessage::setSrcAddr(unsigned int srcAddr)
+void AIDMessage::setSrcAddr(unsigned int srcAddr)
 {
     this->srcAddr_var = srcAddr;
 }
 
-unsigned int FloodingMessage::getDestAddr() const
+unsigned int AIDMessage::getDestAddr() const
 {
     return destAddr_var;
 }
 
-void FloodingMessage::setDestAddr(unsigned int destAddr)
+void AIDMessage::setDestAddr(unsigned int destAddr)
 {
     this->destAddr_var = destAddr;
 }
 
-unsigned int FloodingMessage::getMsgId() const
+unsigned int AIDMessage::getMsgId() const
 {
     return msgId_var;
 }
 
-void FloodingMessage::setMsgId(unsigned int msgId)
+void AIDMessage::setMsgId(unsigned int msgId)
 {
     this->msgId_var = msgId;
 }
 
-int FloodingMessage::getTtl() const
+int AIDMessage::getTtl() const
 {
     return ttl_var;
 }
 
-void FloodingMessage::setTtl(int ttl)
+void AIDMessage::setTtl(int ttl)
 {
     this->ttl_var = ttl;
 }
 
-int FloodingMessage::getHopCount() const
+double AIDMessage::getMessageROI() const
 {
-    return hopCount_var;
+    return messageROI_var;
 }
 
-void FloodingMessage::setHopCount(int hopCount)
+void AIDMessage::setMessageROI(double messageROI)
 {
-    this->hopCount_var = hopCount;
+    this->messageROI_var = messageROI;
 }
 
-simtime_t FloodingMessage::getSent() const
+simtime_t AIDMessage::getMessageOriginTime() const
+{
+    return messageOriginTime_var;
+}
+
+void AIDMessage::setMessageOriginTime(simtime_t messageOriginTime)
+{
+    this->messageOriginTime_var = messageOriginTime;
+}
+
+simtime_t AIDMessage::getMessageTTL() const
+{
+    return messageTTL_var;
+}
+
+void AIDMessage::setMessageTTL(simtime_t messageTTL)
+{
+    this->messageTTL_var = messageTTL;
+}
+
+int AIDMessage::getHops() const
+{
+    return hops_var;
+}
+
+void AIDMessage::setHops(int hops)
+{
+    this->hops_var = hops;
+}
+
+simtime_t AIDMessage::getSent() const
 {
     return sent_var;
 }
 
-void FloodingMessage::setSent(simtime_t sent)
+void AIDMessage::setSent(simtime_t sent)
 {
     this->sent_var = sent;
 }
 
-class FloodingMessageDescriptor : public cClassDescriptor
+class AIDMessageDescriptor : public cClassDescriptor
 {
   public:
-    FloodingMessageDescriptor();
-    virtual ~FloodingMessageDescriptor();
+    AIDMessageDescriptor();
+    virtual ~AIDMessageDescriptor();
 
     virtual bool doesSupport(cObject *obj) const;
     virtual const char *getProperty(const char *propertyname) const;
@@ -197,34 +239,34 @@ class FloodingMessageDescriptor : public cClassDescriptor
     virtual void *getFieldStructPointer(void *object, int field, int i) const;
 };
 
-Register_ClassDescriptor(FloodingMessageDescriptor);
+Register_ClassDescriptor(AIDMessageDescriptor);
 
-FloodingMessageDescriptor::FloodingMessageDescriptor() : cClassDescriptor("FloodingMessage", "WaveShortMessage")
+AIDMessageDescriptor::AIDMessageDescriptor() : cClassDescriptor("AIDMessage", "WaveShortMessage")
 {
 }
 
-FloodingMessageDescriptor::~FloodingMessageDescriptor()
+AIDMessageDescriptor::~AIDMessageDescriptor()
 {
 }
 
-bool FloodingMessageDescriptor::doesSupport(cObject *obj) const
+bool AIDMessageDescriptor::doesSupport(cObject *obj) const
 {
-    return dynamic_cast<FloodingMessage *>(obj)!=NULL;
+    return dynamic_cast<AIDMessage *>(obj)!=NULL;
 }
 
-const char *FloodingMessageDescriptor::getProperty(const char *propertyname) const
+const char *AIDMessageDescriptor::getProperty(const char *propertyname) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     return basedesc ? basedesc->getProperty(propertyname) : NULL;
 }
 
-int FloodingMessageDescriptor::getFieldCount(void *object) const
+int AIDMessageDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 6+basedesc->getFieldCount(object) : 6;
+    return basedesc ? 9+basedesc->getFieldCount(object) : 9;
 }
 
-unsigned int FloodingMessageDescriptor::getFieldTypeFlags(void *object, int field) const
+unsigned int AIDMessageDescriptor::getFieldTypeFlags(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -239,11 +281,14 @@ unsigned int FloodingMessageDescriptor::getFieldTypeFlags(void *object, int fiel
         FD_ISEDITABLE,
         FD_ISEDITABLE,
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<6) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<9) ? fieldTypeFlags[field] : 0;
 }
 
-const char *FloodingMessageDescriptor::getFieldName(void *object, int field) const
+const char *AIDMessageDescriptor::getFieldName(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -256,13 +301,16 @@ const char *FloodingMessageDescriptor::getFieldName(void *object, int field) con
         "destAddr",
         "msgId",
         "ttl",
-        "hopCount",
+        "messageROI",
+        "messageOriginTime",
+        "messageTTL",
+        "hops",
         "sent",
     };
-    return (field>=0 && field<6) ? fieldNames[field] : NULL;
+    return (field>=0 && field<9) ? fieldNames[field] : NULL;
 }
 
-int FloodingMessageDescriptor::findField(void *object, const char *fieldName) const
+int AIDMessageDescriptor::findField(void *object, const char *fieldName) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount(object) : 0;
@@ -270,12 +318,15 @@ int FloodingMessageDescriptor::findField(void *object, const char *fieldName) co
     if (fieldName[0]=='d' && strcmp(fieldName, "destAddr")==0) return base+1;
     if (fieldName[0]=='m' && strcmp(fieldName, "msgId")==0) return base+2;
     if (fieldName[0]=='t' && strcmp(fieldName, "ttl")==0) return base+3;
-    if (fieldName[0]=='h' && strcmp(fieldName, "hopCount")==0) return base+4;
-    if (fieldName[0]=='s' && strcmp(fieldName, "sent")==0) return base+5;
+    if (fieldName[0]=='m' && strcmp(fieldName, "messageROI")==0) return base+4;
+    if (fieldName[0]=='m' && strcmp(fieldName, "messageOriginTime")==0) return base+5;
+    if (fieldName[0]=='m' && strcmp(fieldName, "messageTTL")==0) return base+6;
+    if (fieldName[0]=='h' && strcmp(fieldName, "hops")==0) return base+7;
+    if (fieldName[0]=='s' && strcmp(fieldName, "sent")==0) return base+8;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
-const char *FloodingMessageDescriptor::getFieldTypeString(void *object, int field) const
+const char *AIDMessageDescriptor::getFieldTypeString(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -288,13 +339,16 @@ const char *FloodingMessageDescriptor::getFieldTypeString(void *object, int fiel
         "unsigned int",
         "unsigned int",
         "int",
+        "double",
+        "simtime_t",
+        "simtime_t",
         "int",
         "simtime_t",
     };
-    return (field>=0 && field<6) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<9) ? fieldTypeStrings[field] : NULL;
 }
 
-const char *FloodingMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
+const char *AIDMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -307,7 +361,7 @@ const char *FloodingMessageDescriptor::getFieldProperty(void *object, int field,
     }
 }
 
-int FloodingMessageDescriptor::getArraySize(void *object, int field) const
+int AIDMessageDescriptor::getArraySize(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -315,13 +369,13 @@ int FloodingMessageDescriptor::getArraySize(void *object, int field) const
             return basedesc->getArraySize(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    AIDMessage *pp = (AIDMessage *)object; (void)pp;
     switch (field) {
         default: return 0;
     }
 }
 
-std::string FloodingMessageDescriptor::getFieldAsString(void *object, int field, int i) const
+std::string AIDMessageDescriptor::getFieldAsString(void *object, int field, int i) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -329,19 +383,22 @@ std::string FloodingMessageDescriptor::getFieldAsString(void *object, int field,
             return basedesc->getFieldAsString(object,field,i);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    AIDMessage *pp = (AIDMessage *)object; (void)pp;
     switch (field) {
         case 0: return ulong2string(pp->getSrcAddr());
         case 1: return ulong2string(pp->getDestAddr());
         case 2: return ulong2string(pp->getMsgId());
         case 3: return long2string(pp->getTtl());
-        case 4: return long2string(pp->getHopCount());
-        case 5: return double2string(pp->getSent());
+        case 4: return double2string(pp->getMessageROI());
+        case 5: return double2string(pp->getMessageOriginTime());
+        case 6: return double2string(pp->getMessageTTL());
+        case 7: return long2string(pp->getHops());
+        case 8: return double2string(pp->getSent());
         default: return "";
     }
 }
 
-bool FloodingMessageDescriptor::setFieldAsString(void *object, int field, int i, const char *value) const
+bool AIDMessageDescriptor::setFieldAsString(void *object, int field, int i, const char *value) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -349,19 +406,22 @@ bool FloodingMessageDescriptor::setFieldAsString(void *object, int field, int i,
             return basedesc->setFieldAsString(object,field,i,value);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    AIDMessage *pp = (AIDMessage *)object; (void)pp;
     switch (field) {
         case 0: pp->setSrcAddr(string2ulong(value)); return true;
         case 1: pp->setDestAddr(string2ulong(value)); return true;
         case 2: pp->setMsgId(string2ulong(value)); return true;
         case 3: pp->setTtl(string2long(value)); return true;
-        case 4: pp->setHopCount(string2long(value)); return true;
-        case 5: pp->setSent(string2double(value)); return true;
+        case 4: pp->setMessageROI(string2double(value)); return true;
+        case 5: pp->setMessageOriginTime(string2double(value)); return true;
+        case 6: pp->setMessageTTL(string2double(value)); return true;
+        case 7: pp->setHops(string2long(value)); return true;
+        case 8: pp->setSent(string2double(value)); return true;
         default: return false;
     }
 }
 
-const char *FloodingMessageDescriptor::getFieldStructName(void *object, int field) const
+const char *AIDMessageDescriptor::getFieldStructName(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -374,7 +434,7 @@ const char *FloodingMessageDescriptor::getFieldStructName(void *object, int fiel
     };
 }
 
-void *FloodingMessageDescriptor::getFieldStructPointer(void *object, int field, int i) const
+void *AIDMessageDescriptor::getFieldStructPointer(void *object, int field, int i) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -382,7 +442,7 @@ void *FloodingMessageDescriptor::getFieldStructPointer(void *object, int field, 
             return basedesc->getFieldStructPointer(object, field, i);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    AIDMessage *pp = (AIDMessage *)object; (void)pp;
     switch (field) {
         default: return NULL;
     }

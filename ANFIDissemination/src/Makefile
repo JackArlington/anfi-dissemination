@@ -56,14 +56,16 @@ OBJS = \
     $O/messages/AirFrame11p_m.o \
     $O/messages/FloodingMessage_m.o \
     $O/messages/Mac80211Pkt_m.o \
-    $O/messages/WaveShortMessage_m.o
+    $O/messages/WaveShortMessage_m.o \
+    $O/messages/AIDMessage_m.o
 
 # Message files
 MSGFILES = \
     messages/AirFrame11p.msg \
     messages/FloodingMessage.msg \
     messages/Mac80211Pkt.msg \
-    messages/WaveShortMessage.msg
+    messages/WaveShortMessage.msg \
+    messages/AIDMessage.msg
 
 # Other makefile variables (-K)
 VEINS_PROJ=/home/jacky/bin/veins-veins-3.0
@@ -267,6 +269,14 @@ $O/application/rsu/RSUApplication.o: application/rsu/RSUApplication.cc \
 	$(VEINS_PROJ)/src/modules/obstacle/ObstacleControl.h \
 	$(VEINS_PROJ)/src/modules/utility/Consts80211p.h \
 	$(VEINS_PROJ)/src/modules/world/annotations/AnnotationManager.h
+$O/messages/AIDMessage_m.o: messages/AIDMessage_m.cc \
+	messages/AIDMessage_m.h \
+	messages/WaveShortMessage_m.h \
+	$(VEINS_PROJ)/src/base/utils/MiXiMDefs.h \
+	$(VEINS_PROJ)/src/base/utils/miximkerneldefs.h \
+	$(VEINS_PROJ)/src/inet/Coord.h \
+	$(VEINS_PROJ)/src/inet/FWMath.h \
+	$(VEINS_PROJ)/src/modules/messages/WaveShortMessage_m.h
 $O/messages/AirFrame11p_m.o: messages/AirFrame11p_m.cc \
 	messages/AirFrame11p_m.h \
 	$(VEINS_PROJ)/src/base/messages/AirFrame_m.h \

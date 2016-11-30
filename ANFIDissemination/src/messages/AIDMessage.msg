@@ -20,7 +20,7 @@ cplusplus {{
 class WaveShortMessage;
 struct Coord;
 
-message FloodingMessage extends WaveShortMessage
+message AIDMessage extends WaveShortMessage
 {
     unsigned int srcAddr;
     unsigned int destAddr;
