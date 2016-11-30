@@ -17,6 +17,7 @@ simple Flooding like IBaseApplLayer
         @statistic[duplicatedMessages](record=sum);
         @statistic[messagesTransmitted](record=sum);
         @statistic[messagesReceived](record=sum);
+        @statistic[retransmissionInhibited](record=sum);
         
         int ttl = default(5);
         

@@ -79,7 +79,7 @@ class Flooding : public BaseApplLayer {
 	    simsignal_t duplicatedMessages; // Indicate the number of duplicate messages received by a vehicle
 	    simsignal_t messagesTransmitted; // Indicate the number of messages transmitted by a vehicle
 	    simsignal_t messagesReceived; // Indicate whether the message was received or not
-
+	    simsignal_t retransmissionInhibited;
 };
 
 #endif /* FLOODING_H_ */

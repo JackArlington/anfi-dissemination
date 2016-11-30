@@ -19,6 +19,7 @@ void Flooding::initialize(int stage) {
         duplicatedMessages = registerSignal("duplicatedMessages");
         messagesTransmitted = registerSignal("messagesTransmitted");
         messagesReceived = registerSignal("messagesReceived");
+        retransmissionInhibited = registerSignal("retransmissionInhibited");
 
 		traci = TraCIMobilityAccess().get(getParentModule());
 		annotations = AnnotationManagerAccess().getIfExists();
@@ -94,15 +95,11 @@ void Flooding::handleLowerMsg(cMessage* msg) {
 	ASSERT(flm);
 
 	emit(messagesReceived, 1);
-	flm->setTtl(flm->getTtl()-1);
 
-	if(flm->getTtl()>0){
-        if(sendWSM(flm)) {
-            traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
-        }
-	} else {
+    if(sendWSM(flm)) {
+        traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
+    }
 
-	}
 }
 
 void Flooding::handleSelfMsg(cMessage* msg) {
@@ -134,13 +131,17 @@ bool Flooding::sendWSM(FloodingMessage* wsm) {
         packetHistoryIndex = 0;
     }
 
-    if(!packetSent) {
+
+    wsm->setTtl(wsm->getTtl()-1);
+
+    if(!packetSent && wsm->getTtl()>0) {
  //       cMessage *copy = (cMessage *)wsm->dup();
         packetHistory[packetHistoryIndex++] = wsm->getMsgId();
         sendDelayedDown(wsm,individualOffset);
         emit(messagesTransmitted, 1);
         return true;
     } else {
+        emit(retransmissionInhibited, 1);
         delete wsm;
         return false;
     }
