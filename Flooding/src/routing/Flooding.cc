@@ -34,6 +34,22 @@ void Flooding::initialize(int stage)
         duplicatedMessages = registerSignal("duplicatedMessages");
         messagesTransmitted = registerSignal("messagesTransmitted");
         messagesReceived = registerSignal("messagesReceived");
+        EV << getParentModule()->getIndex();
+        if(getParentModule()->getIndex() == 218){
+            MessageInfoEntry* info = new MessageInfoEntry;
+            info->hops = 0;
+            info->messageID = intuniform(0, 1000);
+            info->messageLength = 128;
+            info->messageOriginPosition = curPosition;
+            info->messageOriginTime = simTime();
+            info->messageROI = 500;
+            info->messageTTL = 5;
+
+            addMessageToOutputQueue(info);
+
+            EV << "ADDDED MESSAGE";
+
+        }
     }
 }
 

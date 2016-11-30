@@ -29,7 +29,9 @@ INCLUDE_PATH = \
     -I$(VEINS_PROJ)/src/modules/messages \
     -I. \
     -Iapplication \
-    -Iapplication/flooding \
+    -Iapplication/routing \
+    -Iapplication/routing/flooding \
+    -Iapplication/rsu \
     -Imessages \
     -Inodes
 
@@ -47,19 +49,21 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc and .msg files
 OBJS = \
-    $O/application/flooding/AdvancedFlooding.o \
-    $O/application/flooding/Flooding.o \
+    $O/application/routing/flooding/Flooding.o \
+    $O/application/rsu/RSUApplication.o \
     $O/messages/AirFrame11p_m.o \
     $O/messages/FloodingMessage_m.o \
     $O/messages/Mac80211Pkt_m.o \
-    $O/messages/WaveShortMessage_m.o
+    $O/messages/WaveShortMessage_m.o \
+    $O/messages/DataMessage_m.o
 
 # Message files
 MSGFILES = \
     messages/AirFrame11p.msg \
     messages/FloodingMessage.msg \
     messages/Mac80211Pkt.msg \
-    messages/WaveShortMessage.msg
+    messages/WaveShortMessage.msg \
+    messages/DataMessage.msg
 
 # Other makefile variables (-K)
 VEINS_PROJ=/home/jacky/bin/veins-veins-3.0
@@ -137,7 +141,9 @@ clean:
 	$(Q)-rm -f ANFIDissemination ANFIDissemination.exe libANFIDissemination.so libANFIDissemination.a libANFIDissemination.dll libANFIDissemination.dylib
 	$(Q)-rm -f ./*_m.cc ./*_m.h
 	$(Q)-rm -f application/*_m.cc application/*_m.h
-	$(Q)-rm -f application/flooding/*_m.cc application/flooding/*_m.h
+	$(Q)-rm -f application/routing/*_m.cc application/routing/*_m.h
+	$(Q)-rm -f application/routing/flooding/*_m.cc application/routing/flooding/*_m.h
+	$(Q)-rm -f application/rsu/*_m.cc application/rsu/*_m.h
 	$(Q)-rm -f messages/*_m.cc messages/*_m.h
 	$(Q)-rm -f nodes/*_m.cc nodes/*_m.h
 
@@ -146,11 +152,11 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc application/*.cc application/flooding/*.cc messages/*.cc nodes/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc application/*.cc application/routing/*.cc application/routing/flooding/*.cc application/rsu/*.cc messages/*.cc nodes/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
-$O/application/flooding/AdvancedFlooding.o: application/flooding/AdvancedFlooding.cc \
-	application/flooding/AdvancedFlooding.h \
+$O/application/routing/flooding/Flooding.o: application/routing/flooding/Flooding.cc \
+	application/routing/flooding/Flooding.h \
 	messages/FloodingMessage_m.h \
 	messages/WaveShortMessage_m.h \
 	$(VEINS_PROJ)/src/base/connectionManager/BaseConnectionManager.h \
@@ -186,11 +192,13 @@ $O/application/flooding/AdvancedFlooding.o: application/flooding/AdvancedFloodin
 	$(VEINS_PROJ)/src/modules/obstacle/ObstacleControl.h \
 	$(VEINS_PROJ)/src/modules/utility/Consts80211p.h \
 	$(VEINS_PROJ)/src/modules/world/annotations/AnnotationManager.h
-$O/application/flooding/Flooding.o: application/flooding/Flooding.cc \
-	application/flooding/Flooding.h \
+$O/application/rsu/RSUApplication.o: application/rsu/RSUApplication.cc \
+	application/rsu/RSUApplication.h \
 	messages/FloodingMessage_m.h \
 	messages/WaveShortMessage_m.h \
+	$(VEINS_PROJ)/src/base/connectionManager/BaseConnectionManager.h \
 	$(VEINS_PROJ)/src/base/connectionManager/ChannelAccess.h \
+	$(VEINS_PROJ)/src/base/connectionManager/NicEntry.h \
 	$(VEINS_PROJ)/src/base/modules/BaseApplLayer.h \
 	$(VEINS_PROJ)/src/base/modules/BaseBattery.h \
 	$(VEINS_PROJ)/src/base/modules/BaseLayer.h \
@@ -210,7 +218,17 @@ $O/application/flooding/Flooding.o: application/flooding/Flooding.cc \
 	$(VEINS_PROJ)/src/inet/FWMath.h \
 	$(VEINS_PROJ)/src/modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
 	$(VEINS_PROJ)/src/modules/messages/WaveShortMessage_m.h \
-	$(VEINS_PROJ)/src/modules/utility/Consts80211p.h
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIBuffer.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIColor.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCICommandInterface.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIConnection.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCICoord.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIMobility.h \
+	$(VEINS_PROJ)/src/modules/mobility/traci/TraCIScenarioManager.h \
+	$(VEINS_PROJ)/src/modules/obstacle/Obstacle.h \
+	$(VEINS_PROJ)/src/modules/obstacle/ObstacleControl.h \
+	$(VEINS_PROJ)/src/modules/utility/Consts80211p.h \
+	$(VEINS_PROJ)/src/modules/world/annotations/AnnotationManager.h
 $O/messages/AirFrame11p_m.o: messages/AirFrame11p_m.cc \
 	messages/AirFrame11p_m.h \
 	$(VEINS_PROJ)/src/base/messages/AirFrame_m.h \
@@ -222,6 +240,12 @@ $O/messages/AirFrame11p_m.o: messages/AirFrame11p_m.cc \
 	$(VEINS_PROJ)/src/base/utils/MiXiMDefs.h \
 	$(VEINS_PROJ)/src/base/utils/miximkerneldefs.h \
 	$(VEINS_PROJ)/src/modules/messages/AirFrame11p_m.h
+$O/messages/DataMessage_m.o: messages/DataMessage_m.cc \
+	messages/DataMessage_m.h \
+	$(VEINS_PROJ)/src/base/utils/MiXiMDefs.h \
+	$(VEINS_PROJ)/src/base/utils/miximkerneldefs.h \
+	$(VEINS_PROJ)/src/inet/Coord.h \
+	$(VEINS_PROJ)/src/inet/FWMath.h
 $O/messages/FloodingMessage_m.o: messages/FloodingMessage_m.cc \
 	messages/FloodingMessage_m.h \
 	messages/WaveShortMessage_m.h \

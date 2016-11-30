@@ -1,5 +1,5 @@
-#ifndef FLOODING_H_
-#define FLOODING_H_
+#ifndef RSUAPPLICATION_H_
+#define RSUAPPLICATION_H_
 
 #include <map>
 #include <BaseApplLayer.h>
@@ -9,14 +9,19 @@
 #include "base/connectionManager/ChannelAccess.h"
 #include <WaveAppToMac1609_4Interface.h>
 
+#include "modules/mobility/traci/TraCIMobility.h"
+
+using Veins::TraCIMobility;
+using Veins::AnnotationManager;
+
 #ifndef DBG
 #define DBG EV
 #endif
 
-class Flooding : public BaseApplLayer {
+class RSUApplication : public BaseApplLayer {
 
 	public:
-		~Flooding();
+		~RSUApplication();
 		virtual void initialize(int stage);
 		virtual void finish();
 
@@ -29,6 +34,9 @@ class Flooding : public BaseApplLayer {
 
 	protected:
 
+		TraCIMobility* traci;
+		AnnotationManager* annotations;
+
 		static const simsignalwrap_t mobilityStateChangedSignal;
 
 		/** @brief handle messages from below */
@@ -37,7 +45,7 @@ class Flooding : public BaseApplLayer {
 		virtual void handleSelfMsg(cMessage* msg);
 
 		virtual FloodingMessage* prepareWSM(std::string name, int dataLengthBits, t_channel channel, int priority, int rcvId, int serial=0);
-		virtual void sendWSM(WaveShortMessage* wsm);
+		virtual bool sendWSM(FloodingMessage* wsm);
 
 		virtual void handlePositionUpdate(cObject* obj);
 
@@ -60,6 +68,12 @@ class Flooding : public BaseApplLayer {
 		cMessage* generateMessageEvt;
 
 		WaveAppToMac1609_4Interface* myMac;
+
+	public:
+	    simsignal_t duplicatedMessages; // Indicate the number of duplicate messages received by a vehicle
+	    simsignal_t messagesTransmitted; // Indicate the number of messages transmitted by a vehicle
+	    simsignal_t messagesReceived; // Indicate whether the message was received or not
+
 };
 
-#endif /* FLOODING_H_ */
+#endif /* RSUAPPLICATION_H_ */

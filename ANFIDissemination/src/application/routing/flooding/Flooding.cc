@@ -2,17 +2,27 @@
 
 const simsignalwrap_t Flooding::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);
 
+using Veins::TraCIMobilityAccess;
+using Veins::AnnotationManagerAccess;
+
 Define_Module(Flooding);
 
 void Flooding::initialize(int stage) {
 	BaseApplLayer::initialize(stage);
 
 	if (stage==0) {
-		myMac = FindModule<WaveAppToMac1609_4Interface*>::findSubModule(
-		            getParentModule());
+		myMac = FindModule<WaveAppToMac1609_4Interface*>::findSubModule(getParentModule());
 		assert(myMac);
 
 		myId = getParentModule()->getIndex();
+
+        duplicatedMessages = registerSignal("duplicatedMessages");
+        messagesTransmitted = registerSignal("messagesTransmitted");
+        messagesReceived = registerSignal("messagesReceived");
+
+		traci = TraCIMobilityAccess().get(getParentModule());
+		annotations = AnnotationManagerAccess().getIfExists();
+		ASSERT(annotations);
 
 		headerLength = par("headerLength").longValue();
 		double maxOffset = par("maxOffset").doubleValue();
@@ -31,13 +41,10 @@ void Flooding::initialize(int stage) {
 
 		generateMessageEvt = new cMessage("generate Message", GENERATE_MESSAGE);
 
+        if(myId == 218) { // vehicle 218 is in the middle of the simulation scenario at 300s
+            scheduleAt(simTime()+10.0, generateMessageEvt); // simTime has the current time + 10s as the shedule is absolute send message after 10s of warmup
+        }
 
-
-	    if (getIndex()==0)
-	    {
-	        // send message once
-	        scheduleAt(20, generateMessageEvt);
-	    }
 	}
 }
 
@@ -86,8 +93,16 @@ void Flooding::handleLowerMsg(cMessage* msg) {
 	FloodingMessage* flm = dynamic_cast<FloodingMessage*>(msg);
 	ASSERT(flm);
 
-	// TODO Flooding
-	sendWSM(flm);
+	emit(messagesReceived, 1);
+	flm->setTtl(flm->getTtl()-1);
+
+	if(flm->getTtl()>0){
+        if(sendWSM(flm)) {
+            traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
+        }
+	} else {
+
+	}
 }
 
 void Flooding::handleSelfMsg(cMessage* msg) {
@@ -104,22 +119,43 @@ void Flooding::handleSelfMsg(cMessage* msg) {
 	}
 }
 
-void Flooding::sendWSM(WaveShortMessage* wsm) {
-	sendDelayedDown(wsm,individualOffset);
+bool Flooding::sendWSM(FloodingMessage* wsm) {
+    static int packetHistoryIndex;
+    bool packetSent = false;
+
+    for(int i=0; i<PACKET_HISTORY_LENGTH; i++){
+        if(packetHistory[i] == wsm->getMsgId()){
+            emit(duplicatedMessages, 1);
+            packetSent = true;
+        }
+    }
+
+    if(packetHistoryIndex >= PACKET_HISTORY_LENGTH){
+        packetHistoryIndex = 0;
+    }
+
+    if(!packetSent) {
+ //       cMessage *copy = (cMessage *)wsm->dup();
+        packetHistory[packetHistoryIndex++] = wsm->getMsgId();
+        sendDelayedDown(wsm,individualOffset);
+        emit(messagesTransmitted, 1);
+        return true;
+    } else {
+        delete wsm;
+        return false;
+    }
 }
 
 void Flooding::finish() {
-
-	// TODO Store scalars here
-
 	findHost()->unsubscribe(mobilityStateChangedSignal, this);
-
 }
 
 FloodingMessage* Flooding::generateMessage() {
 
     FloodingMessage* flm = prepareWSM("flm", dataLengthBits, type_CCH, beaconPriority, 0, -1);
     flm->setMsgId(intuniform(0, 1000));
+    traci->commandSetColor(Veins::TraCIColor::fromTkColor("violet"));
+    flm->setTtl(par("ttl"));
 
     return flm;
 }

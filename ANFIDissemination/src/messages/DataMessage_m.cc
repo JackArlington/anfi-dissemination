@@ -1,5 +1,5 @@
 //
-// Generated file, do not edit! Created by nedtool 4.6 from messages/FloodingMessage.msg.
+// Generated file, do not edit! Created by nedtool 4.6 from messages/DataMessage.msg.
 //
 
 // Disable warnings about unused variables, empty switch stmts, etc:
@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <sstream>
-#include "FloodingMessage_m.h"
+#include "DataMessage_m.h"
 
 USING_NAMESPACE
 
@@ -53,118 +53,117 @@ inline std::ostream& operator<<(std::ostream& out, const std::vector<T,A>& vec)
 template<typename T>
 inline std::ostream& operator<<(std::ostream& out,const T&) {return out;}
 
-Register_Class(FloodingMessage);
+Register_Class(DataMessage);
 
-FloodingMessage::FloodingMessage(const char *name, int kind) : ::WaveShortMessage(name,kind)
+DataMessage::DataMessage(const char *name, int kind) : ::cPacket(name,kind)
 {
-    this->srcAddr_var = 0;
-    this->destAddr_var = 0;
-    this->msgId_var = 0;
-    this->ttl_var = 0;
-    this->sent_var = 0;
+    this->messageROI_var = 0;
+    this->messageOriginTime_var = 0;
+    this->messageTTL_var = 0;
+    this->hops_var = 0;
 }
 
-FloodingMessage::FloodingMessage(const FloodingMessage& other) : ::WaveShortMessage(other)
+DataMessage::DataMessage(const DataMessage& other) : ::cPacket(other)
 {
     copy(other);
 }
 
-FloodingMessage::~FloodingMessage()
+DataMessage::~DataMessage()
 {
 }
 
-FloodingMessage& FloodingMessage::operator=(const FloodingMessage& other)
+DataMessage& DataMessage::operator=(const DataMessage& other)
 {
     if (this==&other) return *this;
-    ::WaveShortMessage::operator=(other);
+    ::cPacket::operator=(other);
     copy(other);
     return *this;
 }
 
-void FloodingMessage::copy(const FloodingMessage& other)
+void DataMessage::copy(const DataMessage& other)
 {
-    this->srcAddr_var = other.srcAddr_var;
-    this->destAddr_var = other.destAddr_var;
-    this->msgId_var = other.msgId_var;
-    this->ttl_var = other.ttl_var;
-    this->sent_var = other.sent_var;
+    this->messageOriginPosition_var = other.messageOriginPosition_var;
+    this->messageROI_var = other.messageROI_var;
+    this->messageOriginTime_var = other.messageOriginTime_var;
+    this->messageTTL_var = other.messageTTL_var;
+    this->hops_var = other.hops_var;
 }
 
-void FloodingMessage::parsimPack(cCommBuffer *b)
+void DataMessage::parsimPack(cCommBuffer *b)
 {
-    ::WaveShortMessage::parsimPack(b);
-    doPacking(b,this->srcAddr_var);
-    doPacking(b,this->destAddr_var);
-    doPacking(b,this->msgId_var);
-    doPacking(b,this->ttl_var);
-    doPacking(b,this->sent_var);
+    ::cPacket::parsimPack(b);
+    doPacking(b,this->messageOriginPosition_var);
+    doPacking(b,this->messageROI_var);
+    doPacking(b,this->messageOriginTime_var);
+    doPacking(b,this->messageTTL_var);
+    doPacking(b,this->hops_var);
 }
 
-void FloodingMessage::parsimUnpack(cCommBuffer *b)
+void DataMessage::parsimUnpack(cCommBuffer *b)
 {
-    ::WaveShortMessage::parsimUnpack(b);
-    doUnpacking(b,this->srcAddr_var);
-    doUnpacking(b,this->destAddr_var);
-    doUnpacking(b,this->msgId_var);
-    doUnpacking(b,this->ttl_var);
-    doUnpacking(b,this->sent_var);
+    ::cPacket::parsimUnpack(b);
+    doUnpacking(b,this->messageOriginPosition_var);
+    doUnpacking(b,this->messageROI_var);
+    doUnpacking(b,this->messageOriginTime_var);
+    doUnpacking(b,this->messageTTL_var);
+    doUnpacking(b,this->hops_var);
 }
 
-unsigned int FloodingMessage::getSrcAddr() const
+Coord& DataMessage::getMessageOriginPosition()
 {
-    return srcAddr_var;
+    return messageOriginPosition_var;
 }
 
-void FloodingMessage::setSrcAddr(unsigned int srcAddr)
+void DataMessage::setMessageOriginPosition(const Coord& messageOriginPosition)
 {
-    this->srcAddr_var = srcAddr;
+    this->messageOriginPosition_var = messageOriginPosition;
 }
 
-unsigned int FloodingMessage::getDestAddr() const
+double DataMessage::getMessageROI() const
 {
-    return destAddr_var;
+    return messageROI_var;
 }
 
-void FloodingMessage::setDestAddr(unsigned int destAddr)
+void DataMessage::setMessageROI(double messageROI)
 {
-    this->destAddr_var = destAddr;
+    this->messageROI_var = messageROI;
 }
 
-unsigned int FloodingMessage::getMsgId() const
+simtime_t DataMessage::getMessageOriginTime() const
 {
-    return msgId_var;
+    return messageOriginTime_var;
 }
 
-void FloodingMessage::setMsgId(unsigned int msgId)
+void DataMessage::setMessageOriginTime(simtime_t messageOriginTime)
 {
-    this->msgId_var = msgId;
+    this->messageOriginTime_var = messageOriginTime;
 }
 
-int FloodingMessage::getTtl() const
+simtime_t DataMessage::getMessageTTL() const
 {
-    return ttl_var;
+    return messageTTL_var;
 }
 
-void FloodingMessage::setTtl(int ttl)
+void DataMessage::setMessageTTL(simtime_t messageTTL)
 {
-    this->ttl_var = ttl;
+    this->messageTTL_var = messageTTL;
 }
 
-simtime_t FloodingMessage::getSent() const
+int DataMessage::getHops() const
 {
-    return sent_var;
+    return hops_var;
 }
 
-void FloodingMessage::setSent(simtime_t sent)
+void DataMessage::setHops(int hops)
 {
-    this->sent_var = sent;
+    this->hops_var = hops;
 }
 
-class FloodingMessageDescriptor : public cClassDescriptor
+class DataMessageDescriptor : public cClassDescriptor
 {
   public:
-    FloodingMessageDescriptor();
-    virtual ~FloodingMessageDescriptor();
+    DataMessageDescriptor();
+    virtual ~DataMessageDescriptor();
 
     virtual bool doesSupport(cObject *obj) const;
     virtual const char *getProperty(const char *propertyname) const;
@@ -183,34 +182,34 @@ class FloodingMessageDescriptor : public cClassDescriptor
     virtual void *getFieldStructPointer(void *object, int field, int i) const;
 };
 
-Register_ClassDescriptor(FloodingMessageDescriptor);
+Register_ClassDescriptor(DataMessageDescriptor);
 
-FloodingMessageDescriptor::FloodingMessageDescriptor() : cClassDescriptor("FloodingMessage", "WaveShortMessage")
+DataMessageDescriptor::DataMessageDescriptor() : cClassDescriptor("DataMessage", "cPacket")
 {
 }
 
-FloodingMessageDescriptor::~FloodingMessageDescriptor()
+DataMessageDescriptor::~DataMessageDescriptor()
 {
 }
 
-bool FloodingMessageDescriptor::doesSupport(cObject *obj) const
+bool DataMessageDescriptor::doesSupport(cObject *obj) const
 {
-    return dynamic_cast<FloodingMessage *>(obj)!=NULL;
+    return dynamic_cast<DataMessage *>(obj)!=NULL;
 }
 
-const char *FloodingMessageDescriptor::getProperty(const char *propertyname) const
+const char *DataMessageDescriptor::getProperty(const char *propertyname) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     return basedesc ? basedesc->getProperty(propertyname) : NULL;
 }
 
-int FloodingMessageDescriptor::getFieldCount(void *object) const
+int DataMessageDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     return basedesc ? 5+basedesc->getFieldCount(object) : 5;
 }
 
-unsigned int FloodingMessageDescriptor::getFieldTypeFlags(void *object, int field) const
+unsigned int DataMessageDescriptor::getFieldTypeFlags(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -219,7 +218,7 @@ unsigned int FloodingMessageDescriptor::getFieldTypeFlags(void *object, int fiel
         field -= basedesc->getFieldCount(object);
     }
     static unsigned int fieldTypeFlags[] = {
-        FD_ISEDITABLE,
+        FD_ISCOMPOUND,
         FD_ISEDITABLE,
         FD_ISEDITABLE,
         FD_ISEDITABLE,
@@ -228,7 +227,7 @@ unsigned int FloodingMessageDescriptor::getFieldTypeFlags(void *object, int fiel
     return (field>=0 && field<5) ? fieldTypeFlags[field] : 0;
 }
 
-const char *FloodingMessageDescriptor::getFieldName(void *object, int field) const
+const char *DataMessageDescriptor::getFieldName(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -237,28 +236,28 @@ const char *FloodingMessageDescriptor::getFieldName(void *object, int field) con
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldNames[] = {
-        "srcAddr",
-        "destAddr",
-        "msgId",
-        "ttl",
-        "sent",
+        "messageOriginPosition",
+        "messageROI",
+        "messageOriginTime",
+        "messageTTL",
+        "hops",
     };
     return (field>=0 && field<5) ? fieldNames[field] : NULL;
 }
 
-int FloodingMessageDescriptor::findField(void *object, const char *fieldName) const
+int DataMessageDescriptor::findField(void *object, const char *fieldName) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount(object) : 0;
-    if (fieldName[0]=='s' && strcmp(fieldName, "srcAddr")==0) return base+0;
-    if (fieldName[0]=='d' && strcmp(fieldName, "destAddr")==0) return base+1;
-    if (fieldName[0]=='m' && strcmp(fieldName, "msgId")==0) return base+2;
-    if (fieldName[0]=='t' && strcmp(fieldName, "ttl")==0) return base+3;
-    if (fieldName[0]=='s' && strcmp(fieldName, "sent")==0) return base+4;
+    if (fieldName[0]=='m' && strcmp(fieldName, "messageOriginPosition")==0) return base+0;
+    if (fieldName[0]=='m' && strcmp(fieldName, "messageROI")==0) return base+1;
+    if (fieldName[0]=='m' && strcmp(fieldName, "messageOriginTime")==0) return base+2;
+    if (fieldName[0]=='m' && strcmp(fieldName, "messageTTL")==0) return base+3;
+    if (fieldName[0]=='h' && strcmp(fieldName, "hops")==0) return base+4;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
-const char *FloodingMessageDescriptor::getFieldTypeString(void *object, int field) const
+const char *DataMessageDescriptor::getFieldTypeString(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -267,16 +266,16 @@ const char *FloodingMessageDescriptor::getFieldTypeString(void *object, int fiel
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldTypeStrings[] = {
-        "unsigned int",
-        "unsigned int",
-        "unsigned int",
-        "int",
+        "Coord",
+        "double",
         "simtime_t",
+        "simtime_t",
+        "int",
     };
     return (field>=0 && field<5) ? fieldTypeStrings[field] : NULL;
 }
 
-const char *FloodingMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
+const char *DataMessageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -289,7 +288,7 @@ const char *FloodingMessageDescriptor::getFieldProperty(void *object, int field,
     }
 }
 
-int FloodingMessageDescriptor::getArraySize(void *object, int field) const
+int DataMessageDescriptor::getArraySize(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -297,13 +296,13 @@ int FloodingMessageDescriptor::getArraySize(void *object, int field) const
             return basedesc->getArraySize(object, field);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    DataMessage *pp = (DataMessage *)object; (void)pp;
     switch (field) {
         default: return 0;
     }
 }
 
-std::string FloodingMessageDescriptor::getFieldAsString(void *object, int field, int i) const
+std::string DataMessageDescriptor::getFieldAsString(void *object, int field, int i) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -311,18 +310,18 @@ std::string FloodingMessageDescriptor::getFieldAsString(void *object, int field,
             return basedesc->getFieldAsString(object,field,i);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    DataMessage *pp = (DataMessage *)object; (void)pp;
     switch (field) {
-        case 0: return ulong2string(pp->getSrcAddr());
-        case 1: return ulong2string(pp->getDestAddr());
-        case 2: return ulong2string(pp->getMsgId());
-        case 3: return long2string(pp->getTtl());
-        case 4: return double2string(pp->getSent());
+        case 0: {std::stringstream out; out << pp->getMessageOriginPosition(); return out.str();}
+        case 1: return double2string(pp->getMessageROI());
+        case 2: return double2string(pp->getMessageOriginTime());
+        case 3: return double2string(pp->getMessageTTL());
+        case 4: return long2string(pp->getHops());
         default: return "";
     }
 }
 
-bool FloodingMessageDescriptor::setFieldAsString(void *object, int field, int i, const char *value) const
+bool DataMessageDescriptor::setFieldAsString(void *object, int field, int i, const char *value) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -330,18 +329,17 @@ bool FloodingMessageDescriptor::setFieldAsString(void *object, int field, int i,
             return basedesc->setFieldAsString(object,field,i,value);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    DataMessage *pp = (DataMessage *)object; (void)pp;
     switch (field) {
-        case 0: pp->setSrcAddr(string2ulong(value)); return true;
-        case 1: pp->setDestAddr(string2ulong(value)); return true;
-        case 2: pp->setMsgId(string2ulong(value)); return true;
-        case 3: pp->setTtl(string2long(value)); return true;
-        case 4: pp->setSent(string2double(value)); return true;
+        case 1: pp->setMessageROI(string2double(value)); return true;
+        case 2: pp->setMessageOriginTime(string2double(value)); return true;
+        case 3: pp->setMessageTTL(string2double(value)); return true;
+        case 4: pp->setHops(string2long(value)); return true;
         default: return false;
     }
 }
 
-const char *FloodingMessageDescriptor::getFieldStructName(void *object, int field) const
+const char *DataMessageDescriptor::getFieldStructName(void *object, int field) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -350,11 +348,12 @@ const char *FloodingMessageDescriptor::getFieldStructName(void *object, int fiel
         field -= basedesc->getFieldCount(object);
     }
     switch (field) {
+        case 0: return opp_typename(typeid(Coord));
         default: return NULL;
     };
 }
 
-void *FloodingMessageDescriptor::getFieldStructPointer(void *object, int field, int i) const
+void *DataMessageDescriptor::getFieldStructPointer(void *object, int field, int i) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     if (basedesc) {
@@ -362,8 +361,9 @@ void *FloodingMessageDescriptor::getFieldStructPointer(void *object, int field, 
             return basedesc->getFieldStructPointer(object, field, i);
         field -= basedesc->getFieldCount(object);
     }
-    FloodingMessage *pp = (FloodingMessage *)object; (void)pp;
+    DataMessage *pp = (DataMessage *)object; (void)pp;
     switch (field) {
+        case 0: return (void *)(&pp->getMessageOriginPosition()); break;
         default: return NULL;
     }
 }

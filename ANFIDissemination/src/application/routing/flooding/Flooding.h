@@ -11,6 +11,7 @@
 
 #include "modules/mobility/traci/TraCIMobility.h"
 
+
 using Veins::TraCIMobility;
 using Veins::AnnotationManager;
 
@@ -18,10 +19,12 @@ using Veins::AnnotationManager;
 #define DBG EV
 #endif
 
-class AdvancedFlooding : public BaseApplLayer {
+#define PACKET_HISTORY_LENGTH 10
+
+class Flooding : public BaseApplLayer {
 
 	public:
-		~AdvancedFlooding();
+		~Flooding();
 		virtual void initialize(int stage);
 		virtual void finish();
 
@@ -68,6 +71,14 @@ class AdvancedFlooding : public BaseApplLayer {
 		cMessage* generateMessageEvt;
 
 		WaveAppToMac1609_4Interface* myMac;
+
+	private:
+		int packetHistory[PACKET_HISTORY_LENGTH];
+
+	public:
+	    simsignal_t duplicatedMessages; // Indicate the number of duplicate messages received by a vehicle
+	    simsignal_t messagesTransmitted; // Indicate the number of messages transmitted by a vehicle
+	    simsignal_t messagesReceived; // Indicate whether the message was received or not
 
 };
 

@@ -1,4 +1,4 @@
-package anfidissemination.application.flooding;
+package anfidissemination.application.routing.flooding;
 import org.car2x.veins.base.modules.IBaseApplLayer;
 
 //
@@ -14,6 +14,12 @@ import org.car2x.veins.base.modules.IBaseApplLayer;
 simple Flooding like IBaseApplLayer
 {
     parameters:
+        @statistic[duplicatedMessages](record=sum);
+        @statistic[messagesTransmitted](record=sum);
+        @statistic[messagesReceived](record=sum);
+        
+        int ttl = default(5);
+        
         bool debug = default(false); //whether to print debug output
         int headerLength = default(88bit) @unit(bit); //header length of the application
 

@@ -63,8 +63,8 @@ void RSUApplication::handleSelfMsg(cMessage* msg) {
         }
 
         case SEND_DATA: {
-            //sendData();
-            conecCloud();
+            sendData();
+            //conecCloud();
 
             break;
         }

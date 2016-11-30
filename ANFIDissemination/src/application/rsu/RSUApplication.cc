@@ -1,21 +1,24 @@
-#include "AdvancedFlooding.h"
+#include "RSUApplication.h"
 
-const simsignalwrap_t AdvancedFlooding::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);
+const simsignalwrap_t RSUApplication::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);
 
 using Veins::TraCIMobilityAccess;
 using Veins::AnnotationManagerAccess;
 
-Define_Module(AdvancedFlooding);
+Define_Module(RSUApplication);
 
-void AdvancedFlooding::initialize(int stage) {
+void RSUApplication::initialize(int stage) {
 	BaseApplLayer::initialize(stage);
 
 	if (stage==0) {
-		myMac = FindModule<WaveAppToMac1609_4Interface*>::findSubModule(
-		            getParentModule());
+		myMac = FindModule<WaveAppToMac1609_4Interface*>::findSubModule(getParentModule());
 		assert(myMac);
 
 		myId = getParentModule()->getIndex();
+
+        duplicatedMessages = registerSignal("duplicatedMessages");
+        messagesTransmitted = registerSignal("messagesTransmitted");
+        messagesReceived = registerSignal("messagesReceived");
 
 		traci = TraCIMobilityAccess().get(getParentModule());
 		annotations = AnnotationManagerAccess().getIfExists();
@@ -38,13 +41,12 @@ void AdvancedFlooding::initialize(int stage) {
 
 		generateMessageEvt = new cMessage("generate Message", GENERATE_MESSAGE);
 
-		if(myId == 218) { // vehicle 218 is in the middle of the simulation scenario at 300s
-		    scheduleAt(simTime()+10.0, generateMessageEvt); // simTime has the current time + 10s as the shedule is absolute send message after 10s of warmup
-		}
+		scheduleAt(simTime()+10.0, generateMessageEvt); // simTime has the current time + 10s as the shedule is absolute send message after 10s of warmup
+
 	}
 }
 
-FloodingMessage*  AdvancedFlooding::prepareWSM(std::string name, int lengthBits, t_channel channel, int priority, int rcvId, int serial) {
+FloodingMessage*  RSUApplication::prepareWSM(std::string name, int lengthBits, t_channel channel, int priority, int rcvId, int serial) {
     FloodingMessage* flm =		new FloodingMessage(name.c_str());
     flm->addBitLength(headerLength);
     flm->addBitLength(lengthBits);
@@ -72,30 +74,33 @@ FloodingMessage*  AdvancedFlooding::prepareWSM(std::string name, int lengthBits,
 	return flm;
 }
 
-void AdvancedFlooding::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj) {
+void RSUApplication::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj) {
 	Enter_Method_Silent();
 	if (signalID == mobilityStateChangedSignal) {
 		handlePositionUpdate(obj);
 	}
 }
 
-void AdvancedFlooding::handlePositionUpdate(cObject* obj) {
+void RSUApplication::handlePositionUpdate(cObject* obj) {
 	ChannelMobilityPtrType const mobility = check_and_cast<ChannelMobilityPtrType>(obj);
 	curPosition = mobility->getCurrentPosition();
 }
 
-void AdvancedFlooding::handleLowerMsg(cMessage* msg) {
+void RSUApplication::handleLowerMsg(cMessage* msg) {
 
 	FloodingMessage* flm = dynamic_cast<FloodingMessage*>(msg);
 	ASSERT(flm);
 
-	if(sendWSM(flm)) {
-		// TODO: here the magic happens ;-); ideally you need exactly 13 characters to implement simple flooding, maybe a lot more for the statistics and to avoid continuous rebroadcasts (advanced flooding)
-	    traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
+	flm->setTtl(flm->getTtl()-1);
+
+	if(flm->getTtl()>0){
+        if(sendWSM(flm)) {
+            traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
+        }
 	}
 }
 
-void AdvancedFlooding::handleSelfMsg(cMessage* msg) {
+void RSUApplication::handleSelfMsg(cMessage* msg) {
 	switch (msg->getKind()) {
 		case GENERATE_MESSAGE: {
 			sendWSM(generateMessage());
@@ -109,10 +114,11 @@ void AdvancedFlooding::handleSelfMsg(cMessage* msg) {
 	}
 }
 
-bool AdvancedFlooding::sendWSM(FloodingMessage* wsm) {
+bool RSUApplication::sendWSM(FloodingMessage* wsm) {
 
-    if(true) { // TODO check whether the message has not been sent before
+    if(true) {
         sendDelayedDown(wsm,individualOffset);
+        emit(messagesTransmitted, 1);
         return true;
     } else {
         delete wsm;
@@ -120,23 +126,20 @@ bool AdvancedFlooding::sendWSM(FloodingMessage* wsm) {
     }
 }
 
-void AdvancedFlooding::finish() {
-
-	// TODO Store scalars here
-
+void RSUApplication::finish() {
 	findHost()->unsubscribe(mobilityStateChangedSignal, this);
-
 }
 
-FloodingMessage* AdvancedFlooding::generateMessage() {
+FloodingMessage* RSUApplication::generateMessage() {
 
     FloodingMessage* flm = prepareWSM("flm", dataLengthBits, type_CCH, beaconPriority, 0, -1);
     flm->setMsgId(intuniform(0, 1000));
     traci->commandSetColor(Veins::TraCIColor::fromTkColor("violet"));
+    flm->setTtl(par("ttl"));
 
     return flm;
 }
 
-AdvancedFlooding::~AdvancedFlooding() {
+RSUApplication::~RSUApplication() {
 
 }
