@@ -23,6 +23,8 @@ simple AID like IBaseApplLayer
         
         bool debug = default(false); //whether to print debug output
         int headerLength = default(88bit) @unit(bit); //header length of the application
+        
+        double tau_max = default(0.1);
 
         bool sendBeacons = default(false); //tell the applayer to periodically send beacons
         int beaconLengthBits = default(256bit) @unit(bit); //the length of a beacon packet

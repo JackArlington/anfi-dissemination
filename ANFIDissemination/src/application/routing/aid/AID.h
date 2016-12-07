@@ -19,6 +19,7 @@
 #include <map>
 #include <BaseApplLayer.h>
 #include <Consts80211p.h>
+#include <vector>
 //#include <WaveShortMessage_m.h>
 #include <FloodingMessage_m.h>
 #include "base/connectionManager/ChannelAccess.h"
@@ -29,6 +30,7 @@
 
 using Veins::TraCIMobility;
 using Veins::AnnotationManager;
+using std::list;
 
 #ifndef DBG
 #define DBG EV
@@ -48,7 +50,7 @@ public:
 
     enum WaveApplMessageKinds {
         SERVICE_PROVIDER = LAST_BASE_APPL_MESSAGE_KIND,
-        SEND_BEACON_EVT, GENERATE_MESSAGE
+        SEND_BEACON_EVT, GENERATE_MESSAGE, TRANSMISSION_DELAY
     };
 
 protected:
@@ -83,6 +85,16 @@ protected:
     int mySCH;
     int myId;
 
+    int s;  // counter s for aid
+    int c;  // counter c for aid
+    simtime_t ta;
+    simtime_t tb;
+    int tau;
+    FloodingMessage* tmpMsg;
+
+    std::vector<double> l;
+    std::vector<double>::iterator it;
+
     cMessage* sendBeaconEvt;
     cMessage* generateMessageEvt;
 
@@ -91,11 +103,13 @@ protected:
 private:
     int packetHistory[PACKET_HISTORY_LENGTH];
 
+
 public:
     simsignal_t duplicatedMessages; // Indicate the number of duplicate messages received by a vehicle
     simsignal_t messagesTransmitted; // Indicate the number of messages transmitted by a vehicle
     simsignal_t messagesReceived; // Indicate whether the message was received or not
     simsignal_t retransmissionInhibited;
+    simsignal_t messageReceivedHopCount;
 };
 
 #endif /* AID_H_ */

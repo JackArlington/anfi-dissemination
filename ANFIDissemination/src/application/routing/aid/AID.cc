@@ -44,6 +44,7 @@ void AID::initialize(int stage) {
         messagesTransmitted = registerSignal("messagesTransmitted");
         messagesReceived = registerSignal("messagesReceived");
         retransmissionInhibited = registerSignal("retransmissionInhibited");
+        messageReceivedHopCount = registerSignal("messageReceivedHopCount");
 
         traci = TraCIMobilityAccess().get(getParentModule());
         annotations = AnnotationManagerAccess().getIfExists();
@@ -67,7 +68,7 @@ void AID::initialize(int stage) {
         generateMessageEvt = new cMessage("generate Message", GENERATE_MESSAGE);
 
         if(myId == 218) { // vehicle 218 is in the middle of the simulation scenario at 300s
-            scheduleAt(simTime()+10.0, generateMessageEvt); // simTime has the current time + 10s as the shedule is absolute send message after 10s of warmup
+            scheduleAt(simTime()+3.0, generateMessageEvt); // simTime has the current time + 10s as the shedule is absolute send message after 10s of warmup
         }
 
     }
@@ -115,21 +116,76 @@ void AID::handlePositionUpdate(cObject* obj) {
 
 void AID::handleLowerMsg(cMessage* msg) {
 
+    static cMessage* transmittMessageEvt;
     FloodingMessage* flm = dynamic_cast<FloodingMessage*>(msg);
     ASSERT(flm);
 
     emit(messagesReceived, 1);
 
-    if(sendWSM(flm)) {
-        traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
-    }
+    if(tmpMsg == nullptr){
+        // S1
+        emit(messageReceivedHopCount, flm->getHopCount());
+        tmpMsg = flm;
+        tmpMsg->setHopCount(tmpMsg->getHopCount()+1);
+        s = 0;
+        c = 0;
+        ta = simTime();
 
+        // S2
+        tau = uniform(0, par("tau_max").doubleValue());
+
+        transmittMessageEvt = new cMessage("transmit Message", TRANSMISSION_DELAY);
+
+        scheduleAt(simTime()+tau, transmittMessageEvt);
+
+    } else {
+        emit(duplicatedMessages,1);
+        tb = simTime();
+        // S2.2
+        c++;
+
+        l.push_back((tb-ta).dbl());
+
+    }
 }
 
 void AID::handleSelfMsg(cMessage* msg) {
     switch (msg->getKind()) {
         case GENERATE_MESSAGE: {
             sendWSM(generateMessage());
+            break;
+        }
+        case TRANSMISSION_DELAY: {
+
+            if(c > 0){
+                // S4
+                s=0;
+                for (it=l.begin(); it<l.end(); it++) {
+
+                    if((tau/c)-*it>0){
+                        s--;
+                    } else {
+                        s++;
+                    }
+                }
+
+               // std::cout << s << endl;
+                // S4.2
+                if(s>0){
+                    if(sendWSM(tmpMsg)) {
+                        traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
+                    }
+                } else {
+                    // drop rebroadcast
+                }
+            } else {
+                // S3
+                if(sendWSM(tmpMsg)) {
+                    traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
+                }
+            }
+
+            tmpMsg = nullptr;
             break;
         }
         default: {
@@ -141,26 +197,10 @@ void AID::handleSelfMsg(cMessage* msg) {
 }
 
 bool AID::sendWSM(FloodingMessage* wsm) {
-    static int packetHistoryIndex;
-    bool packetSent = false;
-
-    for(int i=0; i<PACKET_HISTORY_LENGTH; i++){
-        if(packetHistory[i] == wsm->getMsgId()){
-            emit(duplicatedMessages, 1);
-            packetSent = true;
-        }
-    }
-
-    if(packetHistoryIndex >= PACKET_HISTORY_LENGTH){
-        packetHistoryIndex = 0;
-    }
-
 
     wsm->setTtl(wsm->getTtl()-1);
 
-    if(!packetSent && wsm->getTtl()>0) {
- //       cMessage *copy = (cMessage *)wsm->dup();
-        packetHistory[packetHistoryIndex++] = wsm->getMsgId();
+    if(wsm->getTtl()>0) {
         sendDelayedDown(wsm,individualOffset);
         emit(messagesTransmitted, 1);
         return true;
