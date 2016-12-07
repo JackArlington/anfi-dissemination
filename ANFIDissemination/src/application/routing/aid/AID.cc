@@ -45,6 +45,9 @@ void AID::initialize(int stage) {
         messagesReceived = registerSignal("messagesReceived");
         retransmissionInhibited = registerSignal("retransmissionInhibited");
         messageReceivedHopCount = registerSignal("messageReceivedHopCount");
+        carCreated = registerSignal("carCreated");
+        carReached = registerSignal("carReached");
+        emit(carCreated, 1);
 
         traci = TraCIMobilityAccess().get(getParentModule());
         annotations = AnnotationManagerAccess().getIfExists();
@@ -117,10 +120,16 @@ void AID::handlePositionUpdate(cObject* obj) {
 void AID::handleLowerMsg(cMessage* msg) {
 
     static cMessage* transmittMessageEvt;
+    static bool carWasReached = false;
     FloodingMessage* flm = dynamic_cast<FloodingMessage*>(msg);
     ASSERT(flm);
 
     emit(messagesReceived, 1);
+
+    if(!carWasReached){
+        carWasReached = true;
+        emit(carReached,1);
+    }
 
     if(tmpMsg == nullptr){
         // S1
@@ -136,14 +145,13 @@ void AID::handleLowerMsg(cMessage* msg) {
 
         transmittMessageEvt = new cMessage("transmit Message", TRANSMISSION_DELAY);
 
-        scheduleAt(simTime()+tau, transmittMessageEvt);
+        scheduleAt(ta + tau, transmittMessageEvt);
 
     } else {
         emit(duplicatedMessages,1);
         tb = simTime();
         // S2.2
         c++;
-
         l.push_back((tb-ta).dbl());
 
     }
@@ -167,9 +175,12 @@ void AID::handleSelfMsg(cMessage* msg) {
                     } else {
                         s++;
                     }
-                }
 
-               // std::cout << s << endl;
+                    if(myId == 218)
+                        std::cout << *it << ":";
+                }
+                if(myId == 218)
+                    std::cout << endl;
                 // S4.2
                 if(s>0){
                     if(sendWSM(tmpMsg)) {
@@ -177,6 +188,7 @@ void AID::handleSelfMsg(cMessage* msg) {
                     }
                 } else {
                     // drop rebroadcast
+
                 }
             } else {
                 // S3
@@ -184,7 +196,7 @@ void AID::handleSelfMsg(cMessage* msg) {
                     traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
                 }
             }
-
+            l.clear();
             tmpMsg = nullptr;
             break;
         }
