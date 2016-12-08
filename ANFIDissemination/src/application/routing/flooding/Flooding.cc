@@ -16,13 +16,15 @@ void Flooding::initialize(int stage) {
 
 		myId = getParentModule()->getIndex();
 
-
         duplicatedMessages = registerSignal("duplicatedMessages");
         messagesTransmitted = registerSignal("messagesTransmitted");
         messagesReceived = registerSignal("messagesReceived");
-        retransmissionInhibited = registerSignal("retransmissionInhibited");
+        floodingDrop = registerSignal("floodingDrop");
         messageReceivedHopCount = registerSignal("messageReceivedHopCount");
+        ttlDrop = registerSignal("ttlDrop");
         carCreated = registerSignal("carCreated");
+        carReached = registerSignal("carReached");
+        delay = registerSignal("delay");
 
         emit(carCreated, 1);
 
@@ -141,6 +143,9 @@ bool Flooding::sendWSM(FloodingMessage* wsm) {
 
     if(!packetSent){
         emit(messageReceivedHopCount, wsm->getHopCount()-1);
+        emit(delay, (wsm->getArrivalTime()-wsm->getSendingTime()).dbl());
+
+        emit(carReached,1);
     }
 
     if(!packetSent && wsm->getTtl()>0) {
@@ -151,7 +156,12 @@ bool Flooding::sendWSM(FloodingMessage* wsm) {
         emit(messagesTransmitted, 1);
         return true;
     } else {
-        emit(retransmissionInhibited, 1);
+        if(packetSent){
+            emit(floodingDrop, 1);
+        }
+        if(wsm->getTtl()<0){
+            emit(ttlDrop,1);
+        }
         delete wsm;
         return false;
     }

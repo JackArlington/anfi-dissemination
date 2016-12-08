@@ -43,10 +43,12 @@ void AID::initialize(int stage) {
         duplicatedMessages = registerSignal("duplicatedMessages");
         messagesTransmitted = registerSignal("messagesTransmitted");
         messagesReceived = registerSignal("messagesReceived");
-        retransmissionInhibited = registerSignal("retransmissionInhibited");
+        ttlDrop = registerSignal("ttlDrop");
+        aidDrop = registerSignal("aidDrop");
         messageReceivedHopCount = registerSignal("messageReceivedHopCount");
         carCreated = registerSignal("carCreated");
         carReached = registerSignal("carReached");
+
         delay = registerSignal("delay");
         emit(carCreated, 1);
 
@@ -128,7 +130,7 @@ void AID::handleLowerMsg(cMessage* msg) {
     if(!carWasReached){
         carWasReached = true;
         emit(carReached,1);
-        emit(delay, (simTime()-flm->getSent()).dbl());
+        emit(delay, (flm->getArrivalTime()-flm->getSent()).dbl());
         emit(messageReceivedHopCount, flm->getHopCount());
     }
 
@@ -180,7 +182,7 @@ void AID::handleSelfMsg(cMessage* msg) {
                     }
                 } else {
                     // drop rebroadcast
-
+                    emit(aidDrop, 1);
                 }
             } else {
                 // S3
@@ -189,7 +191,7 @@ void AID::handleSelfMsg(cMessage* msg) {
                 }
             }
             l.clear();
-           // tmpMsg = nullptr;
+            tmpMsg = nullptr;
             break;
         }
         default: {
@@ -209,7 +211,7 @@ bool AID::sendWSM(FloodingMessage* wsm) {
         emit(messagesTransmitted, 1);
         return true;
     } else {
-        emit(retransmissionInhibited, 1);
+        emit(ttlDrop, 1);
         delete wsm;
         return false;
     }

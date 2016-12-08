@@ -29,8 +29,6 @@ import org.car2x.veins.modules.world.annotations.AnnotationManager;
 network Scenario
 {
     parameters:
-        @statistic[messageReceivedHopCount](record=histogram);
-        @statistic[delay](record=histogram);
         @statistic[carCreated](record=sum);
         @statistic[carReached](record=sum);
       	
