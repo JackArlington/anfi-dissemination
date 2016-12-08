@@ -30,8 +30,10 @@ network Scenario
 {
     parameters:
         @statistic[messageReceivedHopCount](record=histogram);
+        @statistic[delay](record=histogram);
         @statistic[carCreated](record=sum);
         @statistic[carReached](record=sum);
+      	
         
         double playgroundSizeX @unit(m); // x size of the area the nodes are in (in meters)
         double playgroundSizeY @unit(m); // y size of the area the nodes are in (in meters)

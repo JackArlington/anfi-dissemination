@@ -47,6 +47,7 @@ void AID::initialize(int stage) {
         messageReceivedHopCount = registerSignal("messageReceivedHopCount");
         carCreated = registerSignal("carCreated");
         carReached = registerSignal("carReached");
+        delay = registerSignal("delay");
         emit(carCreated, 1);
 
         traci = TraCIMobilityAccess().get(getParentModule());
@@ -119,8 +120,6 @@ void AID::handlePositionUpdate(cObject* obj) {
 
 void AID::handleLowerMsg(cMessage* msg) {
 
-    static cMessage* transmittMessageEvt;
-    static bool carWasReached = false;
     FloodingMessage* flm = dynamic_cast<FloodingMessage*>(msg);
     ASSERT(flm);
 
@@ -129,11 +128,12 @@ void AID::handleLowerMsg(cMessage* msg) {
     if(!carWasReached){
         carWasReached = true;
         emit(carReached,1);
+        emit(delay, (simTime()-flm->getSent()).dbl());
+        emit(messageReceivedHopCount, flm->getHopCount());
     }
 
     if(tmpMsg == nullptr){
         // S1
-        emit(messageReceivedHopCount, flm->getHopCount());
         tmpMsg = flm;
         tmpMsg->setHopCount(tmpMsg->getHopCount()+1);
         s = 0;
@@ -153,7 +153,6 @@ void AID::handleLowerMsg(cMessage* msg) {
         // S2.2
         c++;
         l.push_back((tb-ta).dbl());
-
     }
 }
 
@@ -164,25 +163,18 @@ void AID::handleSelfMsg(cMessage* msg) {
             break;
         }
         case TRANSMISSION_DELAY: {
-
             if(c > 0){
                 // S4
                 s=0;
                 for (it=l.begin(); it<l.end(); it++) {
-
                     if((tau/c)-*it>0){
                         s--;
                     } else {
                         s++;
                     }
-
-                    if(myId == 218)
-                        std::cout << *it << ":";
                 }
-                if(myId == 218)
-                    std::cout << endl;
                 // S4.2
-                if(s>0){
+                if(s>10){
                     if(sendWSM(tmpMsg)) {
                         traci->commandSetColor(Veins::TraCIColor::fromTkColor("white"));
                     }
@@ -197,7 +189,7 @@ void AID::handleSelfMsg(cMessage* msg) {
                 }
             }
             l.clear();
-            tmpMsg = nullptr;
+           // tmpMsg = nullptr;
             break;
         }
         default: {

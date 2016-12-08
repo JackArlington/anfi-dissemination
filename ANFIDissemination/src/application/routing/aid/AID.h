@@ -77,6 +77,7 @@ protected:
     int beaconPriority;
     bool sendData;
     bool sendBeacons;
+    bool carWasReached=false;
     simtime_t individualOffset;
     int dataLengthBits;
     bool dataOnSch;
@@ -97,6 +98,8 @@ protected:
 
     cMessage* sendBeaconEvt;
     cMessage* generateMessageEvt;
+    cMessage* transmittMessageEvt;
+
 
     WaveAppToMac1609_4Interface* myMac;
 
@@ -112,6 +115,7 @@ public:
     simsignal_t messageReceivedHopCount;
     simsignal_t carCreated;
     simsignal_t carReached;
+    simsignal_t delay;
 };
 
 #endif /* AID_H_ */
