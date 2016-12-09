@@ -111,11 +111,12 @@ public:
     simsignal_t duplicatedMessages; // Indicate the number of duplicate messages received by a vehicle
     simsignal_t messagesTransmitted; // Indicate the number of messages transmitted by a vehicle
     simsignal_t messagesReceived; // Indicate whether the message was received or not
-    simsignal_t retransmissionInhibited;
+    simsignal_t ttlDrop;
     simsignal_t messageReceivedHopCount;
     simsignal_t carCreated;
     simsignal_t carReached;
     simsignal_t delay;
+    simsignal_t aidDrop;
 };
 
 #endif /* AID_H_ */
