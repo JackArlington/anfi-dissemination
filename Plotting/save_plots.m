@@ -5,6 +5,8 @@ for i=1:length(h)
   fig = h(i);
   titleElement = get(get(fig, 'children'), 'Title');
   titleText = get(titleElement, 'String');
+  titleText = strrep(titleText, '.', '');
+  titleText = strrep(titleText, ':', '');
   name = ['resultPlots/' titleText];
   saveas(h(i), name, 'fig');
   fig.Units = 'centimeters';
