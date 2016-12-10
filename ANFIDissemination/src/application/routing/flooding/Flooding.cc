@@ -143,7 +143,8 @@ bool Flooding::sendWSM(FloodingMessage* wsm) {
 
     if(!packetSent){
         emit(messageReceivedHopCount, wsm->getHopCount()-1);
-        emit(delay, (wsm->getArrivalTime()-wsm->getSendingTime()).dbl());
+
+        emit(delay,(wsm->getArrivalTime()-wsm->getSent()).dbl());
 
         emit(carReached,1);
     }
