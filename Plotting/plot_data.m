@@ -36,6 +36,8 @@ floodingDelay = filter_zero_values(floodingDelay);
 floodingHopCount = filter_zero_values(floodingHopCount);
 floodingDuplicatedMessages = filter_zero_values(floodingDuplicatedMessages);
 
+floodingDelay = floodingDelay - 300;
+
 % create AID plots
 plot_histogram(sprintf('Messages transmitted (AID) - per node reached: %0.3f', aidCarsReached/sum(aidMessagesTransmitted)), 'number of messages transmitted', 'number of nodes', false, aidMessagesTransmitted);
 plot_histogram('Messages received (AID)','number of messages received', 'number of nodes', false, aidMessagesReceived);
