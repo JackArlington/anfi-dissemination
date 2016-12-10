@@ -3,7 +3,7 @@ h = sort(h);
 for i=1:length(h)
   fig = h(i);
   name = ['resultPlots/figure' num2str(i)];
-  saveas(h(i), name, 'fig');
+  %saveas(h(i), name, 'fig');
   fig.Units = 'centimeters';
   pos = fig.Position;
   fig.PaperUnits = 'centimeters';

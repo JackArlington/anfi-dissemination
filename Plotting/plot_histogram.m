@@ -1,9 +1,11 @@
-function [] = plot_histogram( titleText, data )
+function [] = plot_histogram( titleText, xLab, yLab, sum_up, data )
 figure();
 
-histogram(data);
+histogram(data, 'FaceColor', 'blue');
+
+xlabel(xLab);
+ylabel(yLab);
 
 title(titleText);
-
 end
 
