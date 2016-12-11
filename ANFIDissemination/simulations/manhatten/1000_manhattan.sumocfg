@@ -1,7 +1,7 @@
 <configuration>
     <input>
         <net-file value="manhattan.net.xml"/>
-        <route-files value="manhattan.rou.xml"/>
+        <route-files value="1000_manhattan.rou.xml"/>
         <additional-files value="manhattan.add.xml manhattan.poly.xml"/>
     </input>
     <time>

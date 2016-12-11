@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- generated on 2016-12-10 19:44:22.490721 by $Id: randomTrips.py 16365 2014-05-13 08:50:42Z namdre $ 
+  options: -n manhattan.net.xml -b 0 -e 500 -p 10 -o manhattan.trips.xml <doubleminus>min-distance 250
+-->
+<trips>
+    <trip id="0" depart="0.00" from="8/30to9/30" to="4/12to3/12" />
+    <trip id="1" depart="10.00" from="10/28to10/29" to="3/7to2/7" />
+    <trip id="2" depart="20.00" from="8/19to7/19" to="5/22to5/21" />
+    <trip id="3" depart="30.00" from="10/11to9/11" to="7/19to7/20" />
+    <trip id="4" depart="40.00" from="8/25to8/26" to="2/28to1/28" />
+    <trip id="5" depart="50.00" from="9/19to9/20" to="5/9to5/8" />
+    <trip id="6" depart="60.00" from="1/25to1/24" to="5/24to5/25" />
+    <trip id="7" depart="70.00" from="bottom1to1/0" to="8/3to8/4" />
+    <trip id="8" depart="80.00" from="0/0to1/0" to="0/9to1/9" />
+    <trip id="9" depart="90.00" from="7/18to6/18" to="9/17to9/16" />
+    <trip id="10" depart="100.00" from="6/22to7/22" to="4/27to4/28" />
+    <trip id="11" depart="110.00" from="5/2to5/3" to="7/22to7/23" />
+    <trip id="12" depart="120.00" from="4/12to3/12" to="6/26to7/26" />
+    <trip id="13" depart="130.00" from="0/26to1/26" to="7/5to8/5" />
+    <trip id="14" depart="140.00" from="10/10to10/9" to="5/7to5/6" />
+    <trip id="15" depart="150.00" from="right5to10/5" to="6/5to6/4" />
+    <trip id="16" depart="160.00" from="0/20to0/19" to="9/5to8/5" />
+    <trip id="17" depart="170.00" from="5/6to5/5" to="0/1to0/2" />
+    <trip id="18" depart="180.00" from="8/22to8/21" to="5/23to4/23" />
+    <trip id="19" depart="190.00" from="10/4to9/4" to="1/20to0/20" />
+    <trip id="20" depart="200.00" from="1/10to0/10" to="8/28to8/29" />
+    <trip id="21" depart="210.00" from="10/29to9/29" to="0/17to0/18" />
+    <trip id="22" depart="220.00" from="3/1to2/1" to="10/0tobottom10" />
+    <trip id="23" depart="230.00" from="10/5to9/5" to="2/30to1/30" />
+    <trip id="24" depart="240.00" from="10/1to9/1" to="2/2to2/3" />
+    <trip id="25" depart="250.00" from="2/7to2/8" to="5/11to5/10" />
+    <trip id="26" depart="260.00" from="3/28to2/28" to="8/17to8/18" />
+    <trip id="27" depart="270.00" from="5/26to5/25" to="0/10to1/10" />
+    <trip id="28" depart="280.00" from="1/7to1/6" to="1/20to2/20" />
+    <trip id="29" depart="290.00" from="10/4to9/4" to="1/20to1/19" />
+    <trip id="30" depart="300.00" from="0/9to0/10" to="4/8to4/7" />
+    <trip id="31" depart="310.00" from="7/27to8/27" to="4/11to4/12" />
+    <trip id="32" depart="320.00" from="2/27to2/28" to="3/16to4/16" />
+    <trip id="33" depart="330.00" from="8/29to7/29" to="10/30toright30" />
+    <trip id="34" depart="340.00" from="top2to2/30" to="0/18to1/18" />
+    <trip id="35" depart="350.00" from="2/7to2/8" to="1/1to0/1" />
+    <trip id="36" depart="360.00" from="8/27to8/28" to="4/1to5/1" />
+    <trip id="37" depart="370.00" from="4/6to4/7" to="10/27to10/26" />
+    <trip id="38" depart="380.00" from="2/6to2/7" to="8/13to9/13" />
+    <trip id="39" depart="390.00" from="6/6to6/7" to="2/15to2/16" />
+    <trip id="40" depart="400.00" from="6/4to6/5" to="5/27to6/27" />
+    <trip id="41" depart="410.00" from="9/13to10/13" to="3/4to3/3" />
+    <trip id="42" depart="420.00" from="5/6to5/7" to="4/7to3/7" />
+    <trip id="43" depart="430.00" from="8/26to8/25" to="3/15to3/16" />
+    <trip id="44" depart="440.00" from="9/20to8/20" to="5/23to4/23" />
+    <trip id="45" depart="450.00" from="7/20to7/19" to="0/15toleft15" />
+    <trip id="46" depart="460.00" from="2/12to2/11" to="1/1to0/1" />
+    <trip id="47" depart="470.00" from="10/18to10/19" to="7/12to7/11" />
+    <trip id="48" depart="480.00" from="4/2to5/2" to="9/9to10/9" />
+    <trip id="49" depart="490.00" from="10/2to10/3" to="8/9to8/8" />
+</trips>
